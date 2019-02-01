@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'apis_core.apis_vocabularies',
     'apis_core.apis_labels',
     'apis_core.apis_vis',
-    'apis_highlighter',
     'rest_framework.authtoken',
     'guardian',
     'charts',
