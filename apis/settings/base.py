@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'reversion.middleware.RevisionMiddleware',
 ]
 
-ROOT_URLCONF = 'mpr.urls'
+ROOT_URLCONF = 'apis.urls'
 
 TEMPLATES = [
     {
@@ -96,7 +96,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'mpr.wsgi.application'
+WSGI_APPLICATION = 'apis.wsgi.application'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-APIS_BASE_URI = 'https://mpr.acdh.oeaw.ac.at/objects/id/'
+APIS_BASE_URI = 'TO CHANGE'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
