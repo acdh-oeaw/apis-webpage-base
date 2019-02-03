@@ -2,12 +2,12 @@
 # (by default) in the base.html and index.html
 
 PROJECT_METADATA = {
-    'title': 'TITEL',
-    'author': 'AUTHORS',
-    'subtitle': '',
-    'description': '',
-    'github': '',
-    'production instance': '',
+    'title': 'Staribacher Entities',
+    'author': 'Matthias Schlögl, Barbara Krautgartner, Peter Andorfer',
+    'subtitle': 'Entities hub for the digital edition of the staribacher diaries.',
+    'description': 'Project description to come...',
+    'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
+    'production instance': 'None',
     'purpose_de': '',
     'purpose_en': '',
     'version': ['apis_core', 'charts', 'django'],
