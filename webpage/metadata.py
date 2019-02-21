@@ -3,8 +3,7 @@ PROJECT_METADATA = {
     'author': 'Matthias Schlögl, Peter Andorfer',
     'subtitle': 'Entities mentioned in the "Minutes of the council\
     of the ministers of Austria and of the Austro-Hungarian Monarch"',
-    'description': """The current web application considers itself as an 'Entity-Hub' of all Entities\
-    (Persons, Places, Institutions, Works and Evenets) mentioned in the Minutes.""",
+    'description': """The MPR database contains structured entities from the hybrid edition 'Minutes of the Cisleithanian Council of Ministers, 1867−1918’. The entities mostly refer to persons, places and institutions mentioned in these originally confidential minutes, such as the members of the government, the emperor, members of the higher state administration, citizens who received honors from the emperor, etc. As institutions are concerned, ministries and hundreds of state offices of Cisleithania as well as Hungary and abroad were mentioned, but also political parties, representational bodies, and military units. Places mentioned were of course the seats of the aforementioned persons and institutions or the sites where events took place, including historical political entities, such as the kingdoms of the period, and all political and juridical sub-units of Cisleithania. The current web application considers itself as an 'Entity-Hub' of all Entities (Persons, Places, Institutions, Works and Events) mentioned in the Minutes.""",
     'github': 'https://github.com/acdh-oeaw/paas',
     'production instance': 'https://mpr.acdh.oeaw.ac.at',
     'purpose_de': 'Ziel dieser Applikation ist die Publikation von Forschungsdaten',
