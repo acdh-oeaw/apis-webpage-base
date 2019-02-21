@@ -1,19 +1,18 @@
-# this files contains basic metadata about the project. This data will be used
-# (by default) in the base.html and index.html
-
 PROJECT_METADATA = {
-    'title': 'TITLE',
+    'title': 'MPR',
     'author': 'Matthias Schlögl, Peter Andorfer',
-    'subtitle': 'SUBTITLE',
-    'description': """""",
-    'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
-    'production instance': None,
-    'purpose_de': '',
-    'purpose_en': """""",
+    'subtitle': 'Entities mentioned in the "Minutes of the council\
+    of the ministers of Austria and of the Austro-Hungarian Monarch"',
+    'description': """The current web application considers itself as an 'Entity-Hub' of all Entities\
+    (Persons, Places, Institutions, Works and Evenets) mentioned in the Minutes.""",
+    'github': 'https://github.com/acdh-oeaw/paas',
+    'production instance': 'https://mpr.acdh.oeaw.ac.at',
+    'purpose_de': 'Ziel dieser Applikation ist die Publikation von Forschungsdaten',
+    'purpose_en': 'The aim of this service is the publication of research data.',
     'version': ['apis_core', 'charts', 'django'],
-    'matomo_id': '',
-    'matomo_url': '',
-    'imprint': '',
+    'matomo_id': '97',
+    'matomo_url': '//matomo.acdh.oeaw.ac.at/',
+    'imprint': '/imprint',
     'social_media': [
         ('fab fa-twitter', 'https://twitter.com/ACDH_OeAW'),
         ('fab fa-youtube', 'https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w'),
