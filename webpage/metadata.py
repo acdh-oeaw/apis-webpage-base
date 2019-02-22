@@ -2,9 +2,9 @@
 # (by default) in the base.html and index.html
 
 PROJECT_METADATA = {
-    'title': 'TITLE',
-    'author': 'Matthias Schlögl, Peter Andorfer',
-    'subtitle': 'SUBTITLE',
+    'title': 'Aarhus Notebook',
+    'author': 'Matthias Schlögl, Martin Beddelem, Hagen Schulz-Forberg',
+    'subtitle': 'Prosopography of the Towards a Goog Society Project',
     'description': """""",
     'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
     'production instance': None,
