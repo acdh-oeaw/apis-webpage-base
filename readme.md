@@ -63,8 +63,8 @@ For security and performance reasons you dont want to use the development server
         'PASSWORD': 'password',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
+        }
     }
-}
 ```
 
 * install the myqlclient library to your virtualenv:
