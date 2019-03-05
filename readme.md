@@ -65,7 +65,7 @@ For security and performance reasons you dont want to use the development server
         'PORT': '3306',
         }
     }
-```
+    ```
 
 * install the myqlclient library to your virtualenv:
 
