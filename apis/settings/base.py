@@ -17,9 +17,7 @@ BASE_DIR = os.path.dirname(
     os.path.dirname(os.path.abspath(os.path.join(__file__, "../")))
 )
 
-ACDH_IMPRINT_URL = (
-    "https://shared.acdh.oeaw.ac.at/acdh-common-assets/api/imprint.php?serviceID="
-)
+ACDH_IMPRINT_URL = "https://shared.acdh.oeaw.ac.at/acdh-common-assets/api/imprint.php?serviceID="
 
 # Application definition
 
