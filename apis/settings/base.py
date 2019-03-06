@@ -256,53 +256,8 @@ APIS_DETAIL_VIEWS_ALLOWED = False
 APIS_LIST_VIEW_TEMPLATE = "browsing/generic_list.html"
 APIS_DELETE_VIEW_TEMPLATE = "webpage/confirm_delete.html"
 
-
-PROJECTS = {
-    'STB':
-        {
-            'abbr': 'STB',
-            'title': 'Schnitzler Diary',
-            'resolver_person': 'pages/person-detail.html?personID=',
-            'resolver_place': 'pages/place-detail.html?placeID=',
-            'base_url': 'https://dse.hephaistos.arz.oeaw.ac.at/exist/apps/schnitzler-process',
-        },
-    'HBAS':
-        {
-            'abbr': 'HBAS',
-            'title': 'Die Korrespondenz Hermann Bahr – Arthur Schnitzler',
-            'resolver_person': 'register.html?key=',
-            'resolver_place': 'register.html?key=',
-            'base_url': 'https://bahrschnitzler.acdh.oeaw.ac.at'
-        },
-    'FK':
-        {
-            'abbr': 'FK',
-            'title': 'Die Fackel',
-            'resolver_person': 'pages/person-detail.html?personID=',
-            'resolver_place': 'pages/place-detail.html?placeID=',
-            'base_url': 'https://fackel.acdh.oeaw.ac.at',
-        },
-    'BR':
-        {
-            'abbr': 'Brenner',
-            'title': 'Der Brenner',
-            'resolver_person': 'pages/person-detail.html?personID=',
-            'resolver_place': 'pages/place-detail.html?placeID=',
-            'base_url': 'https://brenner.acdh.oeaw.ac.at',
-        },
-    'ASBW':
-        {
-            'abbr': 'ASBW',
-            'title': 'Arthur Schnitzler Briefwechsel mit Autorinnen und Autoren',
-            'resolver_person': 'register.html?key=',
-            'resolver_place': 'register.html?key=',
-            'base_url': 'https://schnitzler-briefe.acdh.oeaw.ac.at'
-        },
-}
-
 APIS_IIIF_WORK_KIND = 'IIIF'
 APIS_IIIF_ENT_IIIF_REL = "has iiif image"
 APIS_IIIF_SERVER = "https://iiif.acdh.oeaw.ac.at/"
-# APIS_OPENSEADRAGON_CSS = "https://teic.github.io/CETEIcean/css/CETEIcean.css"
 APIS_OSD_JS = "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/openseadragon.min.js"
 APIS_OSD_IMG_PREFIX = "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/images/"
