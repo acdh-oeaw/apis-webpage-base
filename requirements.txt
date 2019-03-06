@@ -1,4 +1,4 @@
-acdh-django-charts==0.5.0
+acdh-django-charts==0.5.3
 apis-core==0.9.3
 backcall==0.1.0
 bleach==3.0.2
