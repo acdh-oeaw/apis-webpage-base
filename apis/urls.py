@@ -5,7 +5,7 @@ from rest_framework import routers
 
 
 urlpatterns = [
-#    url(r'^apis/', include('apis_core.urls', namespace="apis")),
+    # url(r'^apis/', include('apis_core.urls', namespace="apis")),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', admin.site.urls),
     url(r'^', include('webpage.urls', namespace='webpage')),

@@ -1,0 +1,8 @@
+# Byte-compiled
+__pycache__/
+*.pyc
+
+# sqlite
+/*.sqlite3
+/apis/settings/local.py
+/apis/settings/server.py
