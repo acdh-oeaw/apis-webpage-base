@@ -121,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-APIS_BASE_URI = 'TO CHANGE'
+APIS_BASE_URI = 'pmb.acdh.oeaw.ac.at'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
