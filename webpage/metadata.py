@@ -2,14 +2,17 @@
 # (by default) in the base.html and index.html
 
 PROJECT_METADATA = {
-    'title': 'TITLE',
+    'title': 'PMB',
     'author': 'Matthias Schlögl, Peter Andorfer',
-    'subtitle': 'SUBTITLE',
-    'description': """""",
+    'subtitle': 'Personen der Moderne Basis',
+    'description': """
+    Durch die Normdatei PMB wird ein Webservice für Personen, Werke, Institutionen, Orte und\
+    Ereignisse speziell für die Zeit in Wien um 1900 zur Verfügung gestellt.
+    """,
     'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
-    'production instance': None,
-    'purpose_de': '',
-    'purpose_en': """""",
+    'production instance': True,
+    'purpose_de': 'Ziel dieser Applikation ist die Publikation von Forschungsdaten',
+    'purpose_en': """Purpose of this application is the publication of research data""",
     'version': ['apis_core', 'charts', 'django'],
     'matomo_id': '',
     'matomo_url': '',
