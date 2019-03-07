@@ -41,15 +41,15 @@ class TeiReader():
         self.file = xml
         try:
             self.original = ET.parse(self.file)
-        except:
+        except Exception as e:
             self.original = ET.fromstring(self.file)
         try:
             self.tree = ET.parse(self.file)
-        except:
+        except Exception as e:
             self.tree = ET.fromstring(self.file)
         try:
             self.parsed_file = ET.tostring(self.tree, encoding="utf-8")
-        except:
+        except Exception as e:
             self.parsed_file = "parsing didn't work"
 
     def node_by_xpath(self, xpath=".//tei:person"):
@@ -137,7 +137,7 @@ class TeiReader():
             try:
                 x.attrib['ref']
                 ids.append({'text': x.text, 'ref': x.attrib['ref'], 'node': x})
-            except:
+            except Exception as e:
                 ref = hashlib.md5(x.text.encode('utf-8')).hexdigest()
                 x.attrib['ref'] = "#{}_{}".format(id_prefix, ref)
                 ids.append({'text': x.text, 'ref': x.attrib['ref'], 'node': x})
@@ -217,6 +217,10 @@ class TeiPlaceList(TeiReader):
 
         place = {'xml:id': placeelement.xpath('./@xml:id', namespaces=self.ns_xml)}
         place['type'] = placeelement.xpath('./@type')
+        if len(place['type']) < 1:
+            place['type'] = ['no type provided']
+        else:
+            pass
         place['placeNames'] = []
         place['idno'] = []
         for x in placeelement.xpath('.//tei:placeName', namespaces=self.ns_tei):
@@ -259,7 +263,7 @@ class TeiPlaceList(TeiReader):
                 './/tei:geo/text()',
                 namespaces=self.ns_tei)[0].split(" ")
             geo['type'] = placeelement.xpath('.//tei:geo/@decls', namespaces=self.ns_tei)
-        except:
+        except Exception as e:
             geo['coordinates'] = None
             geo['type'] = None
         place['geo'] = geo
@@ -292,7 +296,7 @@ class TeiPlaceList(TeiReader):
         try:
             fetched_id = element.xpath(xpath2ID, namespaces=namespaces)[0]
             fetched_id = fetched_id.strip()
-        except:
+        except Exception as e:
             result['status'] = False
             return result
         if ndtype:
