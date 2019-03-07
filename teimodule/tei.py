@@ -1,3 +1,4 @@
+import re
 import hashlib
 import pandas as pd
 import lxml.etree as ET
@@ -370,18 +371,14 @@ class TeiPersonList(TeiReader):
             person['alt_names'] = []
             for name in names:
                 altname = {}
-                if name.text:
-                    altname['label'] = name.text
-                else:
-                    try:
-                        altname['label'] = ", ".join(
-                            [x.xpath('.//text()', namespaces=self.ns_tei)[0] for x in name]
-                        )
-                    except Exception as e:
-                        altname['label'] = "ERROR"
+                altname['label'] = re.sub(
+                    '\s+', ' ', "".join(name.xpath(".//text()"))
+                ).strip()
                 try:
-                    altname['type'] = name.xpath('./@subtype')[0]
+                    altname['type'] = "-".join(name.xpath('.//@subtype'))
                 except IndexError:
+                    altname['type'] = 'alt'
+                if altname['type'] == '':
                     altname['type'] = 'alt'
                 person['alt_names'].append(altname)
         else:
