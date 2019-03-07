@@ -195,6 +195,7 @@ APIS_RELATIONS = {
 
 APIS_ENTITIES = {
     'Place': {
+        'merge': True,
         'search': ['name'],
         'table_fields': [
             'name',
