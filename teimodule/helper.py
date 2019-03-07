@@ -134,7 +134,7 @@ def create_uri_strings(pers_dict):
     return uris
 
 
-def create_pers_from_dicts(pers_dicts):
+def create_pers_from_dicts(pers_dicts, verbose=True):
     entities = {
         'new': [],
         'updated': [],
@@ -154,14 +154,16 @@ def create_pers_from_dicts(pers_dicts):
                 if uri.entity:
                     entity = uri.entity
             if entity:
-                print(ascii(entity.name))
+                if verbose is not None:
+                    print(ascii(entity.name))
                 for uri in temp_uris:
                     uri.entity = entity
                     uri.save()
                 entities['updated'].append(entity)
                 entities['all'].append(entity)
             else:
-                print('no entity yet exists, create one')
+                if verbose is not None:
+                    print('no entity yet exists, create one')
 
                 entity = dict_to_pers(pers_dict)
                 for uri in temp_uris:
