@@ -16,7 +16,7 @@ PROJECT_METADATA = {
     'version': ['apis_core', 'charts', 'django'],
     'matomo_id': '98',
     'matomo_url': '//matomo.acdh.oeaw.ac.at/',
-    'imprint': './imprint',
+    'imprint': '/imprint',
     'social_media': [
         ('fab fa-twitter', 'https://twitter.com/ACDH_OeAW'),
         ('fab fa-youtube', 'https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w'),
