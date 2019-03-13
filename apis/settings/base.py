@@ -264,9 +264,9 @@ APIS_OSD_JS = "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/opense
 APIS_OSD_IMG_PREFIX = "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/images/"
 
 PROJECTS = {
-    'STB':
+    'ASTB':
         {
-            'abbr': 'STB',
+            'abbr': 'ASTB',
             'title': 'Schnitzler Diary',
             'resolver_person': 'pages/person-detail.html?personID=',
             'resolver_place': 'pages/place-detail.html?placeID=',
