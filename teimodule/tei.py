@@ -481,3 +481,103 @@ class TeiPersonList(TeiReader):
         except Exception as e:
             print(e)
         return df
+
+
+class TeiBiblList(TeiReader):
+    WORK_PERSON_REL = {
+        "related": {
+            'part_of': None,
+            'label': 'has relation to work',
+            'label_inverse': 'is related to person',
+            'description': "Allgemeine Beziehung zwischen Person und Werk"
+        },
+        "created by": {
+            'part_of': 'has relation to work',
+            'label': 'has created',
+            'label_inverse': 'created by',
+            'description': "Werk ist erschaffen von"
+        },
+        "anonymous": {
+            'part_of': 'has created',
+            'label': 'has written as anonymous',
+            'label_inverse': 'written by anonymous',
+            'description': "Werk ist anonym erschienen"
+        },
+        "pseudonym": {
+            'part_of': 'has created',
+            'label': 'has written as pseudonym',
+            'label_inverse': 'written by pseudonym',
+            'description': "Werk ist unter einem Kürzel oder anderen Namen des Autors erschienen"
+        },
+        "translator": {
+            'part_of': 'has created',
+            'label': 'has written as translator',
+            'label_inverse': 'written by translator',
+            'description': "Werk ist von diesem nicht geschrieben, sondern der ist der Übersetzer"
+        },
+        "editor": {
+            'part_of': 'has created',
+            'label': 'has written as as editor',
+            'label_inverse': 'written by editor',
+            'description': "Werk ist von diesem nicht geschrieben, sondern der ist der Übersetzer"
+        },
+    }
+
+    def parse_listbibl(self):
+
+        """ parses an XML/TEI document and returns
+        * a dict with
+        ** a list of all //tei:listPerson//tei:person elements
+        ** and the length of this list
+        """
+        items = self.tree.xpath('//tei:listBibl/tei:bibl', namespaces=self.ns_tei)
+        return {"amount": len(items), "items": items}
+
+    def bibl2dict(self, element):
+
+        """parses an tei:person node and returns a python person like data dict """
+
+        item = {}
+        # item['node'] = element
+        idnos = element.xpath('.//tei:idno', namespaces=self.ns_tei)
+        if idnos:
+            idno_list = []
+            for idno in idnos:
+                idno_type = idno.xpath('./@type')[0]
+                idno_value = idno.xpath('./text()')[0]
+                idno_list.append(
+                    "{}___{}".format(idno_type, idno_value)
+                )
+            item['idnos'] = "##".join(idno_list)
+        try:
+            item['id'] = element.xpath('./tei:idno[@type="ASBW"]/text()', namespaces=self.ns_tei)[0]
+        except IndexError:
+            item['id'] = ''
+        try:
+            author_rel = element.xpath('.//tei:author', namespaces=self.ns_tei)[0]
+        except IndexError:
+            author_rel = None
+        if author_rel is not None:
+            item['author_rel'] = author_rel.xpath('./@type')[0]
+        else:
+            item['author_rel'] = "created by"
+        author_id = element.xpath('.//tei:ref[@type]/@target', namespaces=self.ns_tei)[0]
+        item['author_id'] = author_id.split('#')[1]
+        try:
+            item['title'] = element.xpath('.//tei:title//text()', namespaces=self.ns_tei)[0]
+        except IndexError:
+            item['title'] = 'No title Provided for: {}'.format(' '.join(item['idnos']))
+        try:
+            item['work_type'] = element.xpath('.//tei:type/text()', namespaces=self.ns_tei)[0]
+        except IndexError:
+            item['work_type'] = 'Text'
+
+        try:
+            item['written_date'] = element.xpath('.//tei:date/text()', namespaces=self.ns_tei)[0]
+        except IndexError:
+            item['written_date'] = None
+        return item
+
+    def generate_bibls(self):
+        for x in self.parse_listbibl()['items']:
+            yield self.bibl2dict(x)
