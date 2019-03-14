@@ -533,7 +533,7 @@ class TeiBiblList(TeiReader):
         items = self.tree.xpath('//tei:listBibl/tei:bibl', namespaces=self.ns_tei)
         return {"amount": len(items), "items": items}
 
-    def bibl2dict(self, element):
+    def bibl2dict(self, element, namespace="https://schnitzler-briefe.acdh.oeaw.ac.at/"):
 
         """parses an tei:person node and returns a python person like data dict """
 
@@ -550,9 +550,13 @@ class TeiBiblList(TeiReader):
                 )
             item['idnos'] = "##".join(idno_list)
         try:
-            item['id'] = element.xpath('./tei:idno[@type="ASBW"]/text()', namespaces=self.ns_tei)[0]
+            item_id = element.xpath('./tei:idno[@type="ASBW"]/text()', namespaces=self.ns_tei)[0]
         except IndexError:
-            item['id'] = ''
+            item_id = None
+        if item_id is not None:
+            item['id'] = "{}{}".format(namespace, item_id)
+        else:
+            item['id'] = ""
         try:
             author_rel = element.xpath('.//tei:author', namespaces=self.ns_tei)[0]
         except IndexError:
