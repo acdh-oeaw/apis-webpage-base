@@ -126,7 +126,9 @@ APIS_BASE_URI = 'pmb.acdh.oeaw.ac.at'
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'de'
+
+SHORT_DATETIME_FORMAT = 'D/M/Y P'
 
 TIME_ZONE = 'UTC'
 
@@ -213,7 +215,7 @@ APIS_ENTITIES = {
         'merge': True,
         'search': ['name', 'first_name'],
         'form_order': ['first_name', 'name'],
-        'table_fields': ['name', 'first_name', 'start_date', 'end_date'],
+        'table_fields': ['name', 'first_name', 'start_date_written', 'end_date_written'],
         'additional_cols': [
                    'profession', 'gender',
            ],

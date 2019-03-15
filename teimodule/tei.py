@@ -565,7 +565,7 @@ class TeiBiblList(TeiReader):
             item['author_rel'] = author_rel.xpath('./@type')[0]
         else:
             item['author_rel'] = "created by"
-        author_id = element.xpath('.//tei:ref[@type]/@target', namespaces=self.ns_tei)[0]
+        author_id = element.xpath('.//tei:ref[@type="author"]/@target', namespaces=self.ns_tei)[0]
         item['author_id'] = author_id.split('#')[1]
         try:
             item['title'] = element.xpath('.//tei:title//text()', namespaces=self.ns_tei)[0]
