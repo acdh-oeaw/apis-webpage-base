@@ -14,7 +14,7 @@ PROJECT_METADATA = {
     'purpose_de': 'Ziel dieser Applikation ist die Publikation von Forschungsdaten',
     'purpose_en': """Purpose of this application is the publication of research data""",
     'version': ['apis_core', 'charts', 'django'],
-    'matomo_id': '98',
+    'matomo_id': '124',
     'matomo_url': '//matomo.acdh.oeaw.ac.at/',
     'imprint': '/imprint',
     'social_media': [
