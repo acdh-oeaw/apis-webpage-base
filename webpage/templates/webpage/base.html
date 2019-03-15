@@ -80,9 +80,11 @@
                                 <span class="caret"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                {% for ent in entities_list %}
-                                    <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' ent %}">{{ent|title}}</a>
-                                {% endfor %}
+                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'person' %}">Personen</a>
+                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'place' %}">Orte</a>
+                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'work' %}">Werke</a>
+                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'institution' %}">Institutionen</a>
+                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'event' %}">Ereignisse</a>
                             </div>
                         </li>
                         <!-- <li class="nav-item dropdown">
