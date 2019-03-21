@@ -12,7 +12,7 @@ PROJECT_METADATA = {
     'purpose_de': 'Ziel von PAAS ist die Publikation von Forschungsdaten.',
     'purpose_en': 'The purpose of PAAS is the publication of research data.',
     'version': '0.0.1',
-    'matomo_id': '23',
+    'matomo_id': '55',
     'matomo_url': '//matomo.acdh.oeaw.ac.at/',
     'imprint': '/imprint',
     'social_media': [
