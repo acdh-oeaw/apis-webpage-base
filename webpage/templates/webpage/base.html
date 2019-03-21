@@ -69,27 +69,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About
                                 <span class="caret"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'webpage:staticpage' template='about' %}">Info</a>
-                                <a class="dropdown-item" href="{% projects_metadata 'imprint' %}">Imprint | Impressum</a>
+                                <a class="dropdown-item" href="{% url 'webpage:staticpage' template='team' %}">Team</a>
+                                <a class="dropdown-item" href="{% url 'webpage:staticpage' template='imprint' %}">Imprint | Impressum</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entitäten
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">APIS Entities
                                 <span class="caret"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'person' %}">Personen</a>
-                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'place' %}">Orte</a>
-                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'work' %}">Werke</a>
-                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'institution' %}">Institutionen</a>
-                                <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' 'event' %}">Ereignisse</a>
+                                {% for ent in entities_list %}
+                                    <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' ent %}">{{ent|title}}</a>
+                                {% endfor %}
                             </div>
                         </li>
-                        <!-- <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">APIS Visualisations
                                 <span class="caret"/>
                             </a>
@@ -97,31 +95,17 @@
                                 <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_network_viz' %}">Netzwerk</a>
 
                             </div>
-                        </li> -->
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Beziehungen
-                                <span class="caret"/>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{% url 'apis:apis_relations:generic_relations_list' 'personplace' %}">Person - Ort</a>
-                                <a class="dropdown-item" href="{% url 'apis:apis_relations:generic_relations_list' 'personwork' %}">Person - Werk</a>
-                                <!-- <a class="dropdown-item" href="{% url 'apis:apis_relations:generic_relations_list' 'personperson' %}">Person - Person</a> -->
-                                <a class="dropdown-item" href="{% url 'apis:apis_relations:generic_relations_list' 'institutionplace' %}">Institution - Ort</a>
-                                <a class="dropdown-item" href="{% url 'apis:apis_relations:generic_relations_list' 'placeplace' %}">Ort - Ort</a>
-                            </div>
                         </li>
-                        {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">add Entities
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">APIS Relations
                                 <span class="caret"/>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                {% for ent in entities_list %}
-                                    <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_create_view' ent %}">{{ent|title}}</a>
+                                {% for ent in relations_list %}
+                                    <a class="dropdown-item" href="{% url 'apis:apis_relations:generic_relations_list' ent %}">{{ent|title}}</a>
                                 {% endfor %}
                             </div>
                         </li>
-                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown ml-auto">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -155,7 +139,7 @@
     <section class="main-content">
         {% if DEV_VERSION %}
         <div class="alert alert-danger" role="alert">
-            This is a DEVELOPMENT instance. Click <a href="https://pmb.acdh.oeaw.ac.at">here</a> for the Production version
+            This is a DEVELOPMENT instance. Click <a href="https://paas.acdh.oeaw.ac.at">here</a> for the Production version
         </div>
         {% endif %}
         <div id="content">
@@ -170,31 +154,36 @@
                 </div>
                 <div class="row">
                     <div class="footer-widget col-lg-1 col-md-2 col-sm-2 col-xs-6 col-3">
-                      <div class="textwidget custom-html-widget">
-                          <img src="{% static 'webpage/img/partner_logo.png' %}" alt="Partner Logo" title="ACDH-OeAW"/>
-                      </div>
+              <div class="textwidget custom-html-widget">
+                <a href="/"><img src="https://www.oeaw.ac.at/fileadmin/oeaw/institutstemplate/ikt/img/iktlogo_cd_3.png" class="image" alt="IKT Logo" title="IKT"></a>
+              </div>
+            </div><!-- .footer-widget -->
+            <div class="footer-widget col-lg-4 col-md-4 col-sm-6 col-9">
+              <div class="textwidget custom-html-widget">
+                <p>
+                 IKT
+                  <br>
+                  Institute of Culture Studies and Theatre History of the Academy of Sciences
+                  <br>
+                  Austrian Academy of Sciences
+                </p>
+                <p>
+                  Postgasse 7/4
+                  <br>
+                  1010 Vienna
+                </p>
+                <p>
+                  T: +43 1 51581-2200
+                  <br>
+                  E: <a href="mailto:ikt@oeaw.ac.at">ikt@oeaw.ac.at</a>
+                </p>
+              </div>
+            </div>
+                    <div class="footer-widget col-md-3">
+                        <img src="{% static 'webpage/img/partner_logo.png' %}" alt="Partner Logo" title="ACDH-OeAW"/>
                     </div>
-                    <!-- .footer-widget -->
-                    <div class="footer-widget col-lg-4 col-md-4 col-sm-6 col-9">
-                      <div class="textwidget custom-html-widget">
-                        <p>
-                          ACDH-ÖAW
-                          <br>
-                          Austrian Centre for Digital Humanities
-                          <br>
-                          Austrian Academy of Sciences
-                        </p>
-                        <p>
-                          Sonnenfelsgasse 19,
-                          <br>
-                          1010 Vienna
-                        </p>
-                        <p>
-                          T: +43 1 51581-2200
-                          <br>
-                          E: <a href="mailto:acdh@oeaw.ac.at">acdh@oeaw.ac.at</a>
-                        </p>
-                      </div>
+                    <div class="footer-widget col-md-3">
+                        <img src="https://www.oeaw.ac.at/typo3conf/ext/oeaw_website/Resources/Public/Images/oeaw_logo_446x192.png" alt="OeAW" title="OeAW"/>
                     </div>
                 </div>
             </div>
@@ -244,5 +233,5 @@
         <noscript>
             <img src="//piwik.apollo.arz.oeaw.ac.at/piwik.php?idsite=48" style="border:0;" alt=""/>
         </noscript>
-        </body>
-        </html>
+    </body>
+</html>
