@@ -4,9 +4,10 @@
 {% load webpage_extras %}
 {% block content %}
 
-<div class="jumbotron" style="min-height: 400px; padding:0; background-image: url({% static 'webpage/img/BK-1995-34-B.jpg' %})" title="Staal met bedrukte zijde, dessin Strohblume, Wiener Werkstätte, 1910 - 1914; https://www.rijksmuseum.nl/en/collection/BK-1995-34-B">
+<div class="jumbotron" style="min-height: 400px; padding:0; background-image: url({% static 'webpage/img/project_background.jpg' %})">
 </div>
 <div class="container">
+
         <div class="card card-index">
             <div class="card-body">
                 <h1 class="text-center title-index">
@@ -17,10 +18,7 @@
                 </p>
                 <hr class="hr-index"/>
                 <p class="text-justify">
-                    {% projects_metadata 'description' %}
-		        </p>
-                <p>
-                    <small>work in progress</small>
+                     The application has been originally developed in the <strong><a href="https://www.oeaw.ac.at/acdh/projects/apis/">APIS-Project</a></strong> of the ACDH-OeAW (Austrian Prosopographical | Biographical Information System), and was further enhanced and adapted in cooperation with the Working Group History of the Austrian Academy of Sciences (HAAS). As an essential part of the planned new anthology on the History of the Austrian Academy of Sciences 1847–2022, the open app will enable users to retrieve the life and career paths of about 3000 Academy members since 1847. Combined evaluation methods make possible an analysis of specific network structures and constellations in the field of science and scholarship of Central Europe. The data concerning persons, places, institutions, events and publications are gathered in a structured way and linked with the <a href="http://www.dnb.de/DE/Standardisierung/GND/gnd_node.html">GND</a> (Gemeinsame Normdatei, “integrated authority file”) of the German National Library, the German-speaking library associations, the <a href="http://zdb-opac.de/">ZDB</a> (Zeitschriftenbank, “periodicals database”) and the <a href="https://www.geonames.org/">GeoNames</a> geographical database.
                 </p>
                 <div class="text-right">
                     <a href="/apis/entities/entity/person/list/" class="btn btn-lg btn-index pulse" class="pull-right">
