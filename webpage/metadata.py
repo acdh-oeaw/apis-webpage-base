@@ -2,10 +2,11 @@
 # (by default) in the base.html and index.html
 
 PROJECT_METADATA = {
-    'title': 'TITLE',
+    'title': 'APIS',
     'author': 'Matthias Schlögl, Peter Andorfer',
-    'subtitle': 'SUBTITLE',
-    'description': """""",
+    'subtitle': 'Austrian Prosopographical Information System',
+    'description': """Testinstance of the APIS project. Used for testing new code
+    and providing access to testdata.""",
     'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
     'production instance': None,
     'purpose_de': '',
