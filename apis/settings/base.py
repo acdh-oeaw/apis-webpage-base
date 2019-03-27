@@ -157,16 +157,35 @@ APIS_CETEICEAN_JS = "https://teic.github.io/CETEIcean/js/CETEI.js"
 APIS_NEXT_PREV = True
 
 APIS_ALTERNATE_NAMES = [
-    'Taufname',
-    'Ehename',
-    'Name laut ÖBL XML',
-    'alternative Namensform',
-    'alternative name',
-    'Künstlername',
-    'Mädchenname',
-    'Pseudonym',
-    'weitere Namensform'
-  ]
+    "alternative name",
+    "Verwitwet",
+    "Geboren_Vorname-Geboren",
+    "Geschieden-Geschieden",
+    "Geboren-Geboren-Geboren_Vorname",
+    "Vorname_Geboren-Vorname_Geboren",
+    "Geboren-Geboren_Vorname",
+    "Verwitwet-Verwitwet",
+    "Rufname",
+    "Geboren",
+    "Variante",
+    "Adoptiert",
+    "Variante-Geboren_Vorname",
+    "Variante-Variante-Variante",
+    "Geboren_Vorname-Geboren_Vorname-Geboren",
+    "Pseudonym-Pseudonym-pseudonym",
+    "Pseudonym-Pseudonym",
+    "Pseudonym",
+    "Geboren-Geboren_Vorname-Geboren",
+    "Geschieden",
+    "Variante-Variante",
+    "Ehename-Ehename",
+    "Rufname-Rufname",
+    "Geboren_Vorname-Geboren_Vorname",
+    "Geboren-Geboren",
+    "Ehename",
+    "Geboren_Vorname",
+    "alt",
+]
 
 APIS_RELATIONS_FILTER_EXCLUDE = [
     'uri',
