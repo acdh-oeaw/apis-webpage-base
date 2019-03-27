@@ -245,7 +245,7 @@ APIS_ENTITIES = {
         'list_filters': [
             ('name', {'method': 'wildcard_filter', 'label': 'Name'})
         ],
-        'table_fields': ['end_date_written'],
+        'table_fields': ['name', 'start_date'],
         'additional_cols': [],
     },
     'Event': {
