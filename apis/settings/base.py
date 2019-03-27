@@ -230,6 +230,7 @@ APIS_ENTITIES = {
         ]
     },
     'Institution': {
+        'merge': True,
         'search': ['name'],
         'list_filters': [
             ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
@@ -239,10 +240,13 @@ APIS_ENTITIES = {
         ]
     },
     'Work': {
+        'merge': True,
         'search': ['name'],
         'list_filters': [
             ('name', {'method': 'wildcard_filter', 'label': 'Name'})
-        ]
+        ],
+        'table_fields': ['end_date_written'],
+        'additional_cols': [],
     },
     'Event': {
         'search': ['name'],
