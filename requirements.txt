@@ -57,7 +57,6 @@ pickleshare==0.7.5
 ply==3.11
 prometheus-client==0.4.2
 prompt-toolkit==2.0.6
-psycopg2==2.7.5
 Pygments==2.2.0
 pyparsing==2.2.2
 python-dateutil==2.7.3
