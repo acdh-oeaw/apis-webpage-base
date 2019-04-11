@@ -45,7 +45,7 @@ span.select2-container--default .select2-selection--single .select2-selection__r
 }
 
 a {
-    color: #DBB8CF;
+    color: #9B5F98;
 }
 
 header {
@@ -142,7 +142,7 @@ footer {
 }
 .title-index {
     font-weight: 900;
-    color: #DBB8CF;
+    color: #9B5F98;
     font-size: 350%;
 }
 @media (max-width: 768px) {
@@ -162,13 +162,13 @@ footer {
 .hr-index {
     height: 4px;
     border: 0;
-    background: #DBB8CF;
+    background: #9B5F98;
     width: 40%;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 .h2-index {
-    color:#DBB8CF;
+    color:#9B5F98;
     font-weight: 800;
     text-align: center;
 }
@@ -196,18 +196,18 @@ footer {
     /*margin-left: 10px;
     margin-right: 10px;*/
     background-color: #ffffff;
-    color: #DBB8CF;
-    border: 3px solid #DBB8CF;
+    color: #9B5F98;
+    border: 3px solid #9B5F98;
     font-weight: 800;
     white-space: normal;
     padding-left: 40px;
     padding-right: 40px;
-    box-shadow: 0px 0px 0px 0px #DBB8CF;
+    box-shadow: 0px 0px 0px 0px #9B5F98;
     transition: box-shadow 0.6s linear;
 }
 
 .btn-index:hover {
-   box-shadow: 0px 0px 0px 2px #DBB8CF;
+   box-shadow: 0px 0px 0px 2px #9B5F98;
 
 }
 
