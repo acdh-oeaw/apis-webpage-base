@@ -59,7 +59,7 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white box-shadow">
             <a class="navbar-brand" href="/">
-                {% projects_metadata 'title' %}
+                <img src="https://shared.acdh.oeaw.ac.at/pmb/project-logo.jpg" alt="ACDH" title="Austrian Centre for Digital Humanities"/>
             </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -194,6 +194,9 @@
                         </p>
                       </div>
                     </div>
+                    <div class="col-md-3 ml-auto">
+                            <img src="https://shared.acdh.oeaw.ac.at/pmb/project-logo.jpg"/>
+                        </div>
                 </div>
             </div>
         </div>
@@ -241,8 +244,5 @@
         {% endblock %}
         {% block scripts2 %}
         {% endblock scripts2 %}
-        <noscript>
-            <img src="//piwik.apollo.arz.oeaw.ac.at/piwik.php?idsite=48" style="border:0;" alt=""/>
-        </noscript>
         </body>
         </html>
