@@ -2,11 +2,12 @@
 # (by default) in the base.html and index.html
 
 PROJECT_METADATA = {
-    'title': 'TITLE',
+    'title': 'WGB-Entities',
     'author': 'Matthias Schlögl, Peter Andorfer',
-    'subtitle': 'SUBTITLE',
-    'description': """""",
-    'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
+    'subtitle': 'Wiener Grundbücher Entity Hub',
+    'description': """Eine Web-Applikation zur Erstellung, Kuratierung und Veröffentlichung von\
+    Entitäten die in der Digitalen Edition der Wiener Grundbücher erwähnt werden.""",
+    'github': 'https://github.com/acdh-oeaw/apis-webpage-base/tree/wgb',
     'production instance': None,
     'purpose_de': '',
     'purpose_en': """""",
