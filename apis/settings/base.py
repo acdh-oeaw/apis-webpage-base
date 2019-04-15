@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gm2m',
     'reversion',
     'reversion_compare',
     'crispy_forms',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'apis_core.apis_vocabularies',
     'apis_core.apis_labels',
     # 'apis_core.apis_vis',
+    'apis_highlighter',
     'rest_framework.authtoken',
     'guardian',
     'charts',
@@ -187,6 +189,7 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     'relation_type__status',
     'relation_type__vocab_name',
     'relation_type__name_reverse',
+    'annotation',
     '__text',
 ]
 
