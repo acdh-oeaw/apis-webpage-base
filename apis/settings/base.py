@@ -395,9 +395,23 @@ APIS_ENTITIES = {
         "search": ["name"],
         "list_filters": [("name", {"method": "wildcard_filter", "label": "Name"})],
     },
-    "Event": {
-        "search": ["name"],
-        "list_filters": [("name", {"method": "wildcard_filter", "label": "Name"})],
+    'Passage': {
+        'search': ['name'],
+        'list_filters': [
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
+        ]
+    },
+    'Publication': {
+        'search': ['name'],
+        'list_filters': [
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
+        ]
+    },
+    'Event': {
+        'search': ['name'],
+        'list_filters': [
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
+        ]
     },
 }
 
