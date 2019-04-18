@@ -235,7 +235,13 @@ APIS_ENTITIES = {
             ('collection', {'label': 'Collection'})
         ]
     },
-    'Work': {
+    'Passage': {
+        'search': ['name'],
+        'list_filters': [
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
+        ]
+    },
+    'Publication': {
         'search': ['name'],
         'list_filters': [
             ('name', {'method': 'wildcard_filter', 'label': 'Name'})
