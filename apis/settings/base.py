@@ -197,6 +197,10 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     "__text",
 ]
 
+APIS_METAINFO = {
+    'exclude': ['groups_allowed']
+}
+
 APIS_RELATIONS = {
     "list_filters": [("relation_type",)],
     "search": ["relation_type__name"],
