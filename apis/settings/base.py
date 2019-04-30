@@ -201,6 +201,10 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     '__text',
 ]
 
+APIS_METAINFO = {
+    'exclude': ['groups_allowed']
+}
+
 APIS_RELATIONS = {
     'exclude': ['name'],
     'PersonPlace': {
