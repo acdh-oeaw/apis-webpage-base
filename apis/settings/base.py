@@ -202,11 +202,15 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
 ]
 
 APIS_RELATIONS = {
+    'exclude': ['name'],
     'PersonPlace': {
-        'exclude': ['name']
+        'labels': ['related_person', 'related_place', 'relation_type']
     }
 }
 
+APIS_VOCABULARIES = {
+    'exclude': ['userAdded'],
+}
 
 APIS_ENTITIES = {
     'Place': {
@@ -239,7 +243,8 @@ APIS_ENTITIES = {
             ('end_date', {'label': 'Date of Death'}),
             ('profession', {'label': 'Profession'}),
             ('collection', {'label': 'Collection'})
-        ]
+        ],
+        'api_exclude': []
     },
     'Institution': {
         'search': ['name'],
