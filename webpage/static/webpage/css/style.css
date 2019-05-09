@@ -44,8 +44,29 @@ span.select2-container--default .select2-selection--single .select2-selection__r
     color: white;
 }
 
+nav.navbar {
+    border-bottom-color: #254aa5;
+}
+
+div.container-fluid {
+    padding-top: 1.25rem;
+}
+
+.feather-32 {
+    width: 32px;
+    height: 32px;
+}
+
 a {
     color: #295495;
+}
+
+a.reledit {
+    cursor: pointer;
+}
+
+a.reldelete {
+    cursor: pointer;
 }
 
 header {
