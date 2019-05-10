@@ -6,5 +6,6 @@ __pycache__/
 /*.sqlite3
 /apis/settings/local.py
 /apis/settings/server.py
+
 .ipynb_checkpoints
-/Untitled.ipynb
+*.ipynb

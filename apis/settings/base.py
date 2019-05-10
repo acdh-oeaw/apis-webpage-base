@@ -132,7 +132,9 @@ APIS_BASE_URI = 'paas.acdh.oeaw.ac.at'
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = 'de'
+
+SHORT_DATETIME_FORMAT = 'D/M/Y P'
 
 TIME_ZONE = "UTC"
 
