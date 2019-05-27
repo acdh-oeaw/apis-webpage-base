@@ -54,6 +54,7 @@ header {
 
 .main-content{
     flex: 1 0 auto;
+    padding-top: 2em;
 }
 
 footer {

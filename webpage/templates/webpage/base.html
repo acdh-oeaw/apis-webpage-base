@@ -17,7 +17,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{% static 'webpage/img/favicon/favicon-16x16.png' %}"/>
         <link rel="manifest" href="{% static 'webpage/img/favicon/manifest.json' %}"/>
         <link rel="mask-icon" href="{% static 'webpage/img/favicon/safari-pinned-tab.svg' %}" color="#00aba9"/>
-        
+
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" />
 	<meta name="theme-color" content="#ffffff"/>
     <!--favicons end -->
@@ -118,31 +118,33 @@
                             </div>
                         </li>
                     {% endif %}
-                    {% if user.is_authenticated %}
-                    <li class="nav-item dropdown ml-auto">
-                        <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            {{ user.get_username }}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="nav-link" href="{% url 'webpage:user_logout' %}">Log-Out</a>
-                      <div class="form-check" style="padding-left: 20px">
-                        <input type="checkbox" class="form-check-input" id="check_edit_views" {% if  request.session.edit_views %}checked{% endif %}>
-                        <label class="form-check-label" for="ckeck_edit_views">Use edit views</label>
-                      </div>
-                        </div>
+                    <div class="navbar-icons">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item dropdown ml-auto">
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                {{ user.get_username }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="nav-link" href="{% url 'webpage:user_logout' %}">Log-Out</a>
+                          <div class="form-check" style="padding-left: 20px">
+                            <input type="checkbox" class="form-check-input" id="check_edit_views" {% if  request.session.edit_views %}checked{% endif %}>
+                            <label class="form-check-label" for="ckeck_edit_views">Use edit views</label>
+                          </div>
+                            </div>
 
-                    </li>
-                    {% else %}
-                    <li class="nav-item dropdown ml-auto">
-                        <a class="nav-link" href="{% url 'webpage:user_login' %}">
-                        <i class="fas fa-sign-in-alt"></i>
-                        </a>
-                    </li>
-                    {% endif %}
+                        </li>
+                        {% else %}
+                        <li class="nav-item dropdown ml-auto">
+                            <a class="nav-link" href="{% url 'webpage:user_login' %}">
+                            <i class="feather-32" data-feather="log-in"></i>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </div>
                 </ul>
                 <div class="navbar-icons">
                     <a href="{% projects_metadata 'github' %}" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i>
+                        <i class="feather-32" data-feather="github"></i>
                     </a>
                 </div>
             </div>
