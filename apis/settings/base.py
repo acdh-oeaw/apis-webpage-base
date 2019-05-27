@@ -273,7 +273,8 @@ APIS_ENTITIES = {
         'merge': True,
         'search': ['name'],
         'list_filters': [
-            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
+            ('name', {'method': 'wildcard_filter', 'label': 'Name'}),
+            ('collection', {'label': 'Collection'})
         ],
         'table_fields': ['name', 'start_date'],
         'additional_cols': [],
