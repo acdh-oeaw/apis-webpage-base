@@ -64,8 +64,8 @@
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container-fluid">
                     <!-- Your site title as branding in the menu -->
-                    <a href="index.html" class="navbar-brand custom-logo-link" rel="home" itemprop="url">
-                        <img src="https://shared.acdh.oeaw.ac.at/schnitzler-tagebuch/project-logo.svg" class="img-fluid" alt="Schnitzler Tagebuch" itemprop="logo"/>
+                    <a href="/" class="navbar-brand custom-logo-link" rel="home" itemprop="url">
+                        {% projects_metadata 'title' %}
                     </a><!-- end custom logo -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"/>
@@ -90,6 +90,7 @@
                                     {% for ent in entities_list %}
                                         <a class="dropdown-item" href="{% url 'apis:apis_entities:generic_entities_list' ent %}">{{ent|title}}</a>
                                     {% endfor %}
+                                    <a class="dropdown-item" href="{% url 'apis:apis_metainfo:uri_browse' %}">URIs</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -201,7 +202,14 @@
         </div>
 
         <div class="footer-imprint-bar" id="wrapper-footer-secondary" style="text-align:center; padding:0.4rem 0; font-size: 0.9rem;">
-            <a href="imprint.html">Impressum</a>
+            <a href="imprint.html">Impressum/Imprint</a>
+            {% if user.is_authenticated %}
+                {% if DB_NAME %}
+                    <div class="footer-imprint-bar">
+                        <small>{{ DB_NAME }}</small>
+                    </div>
+                {% endif %}
+            {% endif %}
         </div>
         {% block scripts %}
         <script src="https://shared.acdh.oeaw.ac.at/fundament/dist/fundament/js/fundament.min.js"></script>
