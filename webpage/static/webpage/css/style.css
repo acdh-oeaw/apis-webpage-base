@@ -7,7 +7,6 @@ body {
     flex-direction: column;
     height: 100%;
     font-family: 'Libre Franklin', sans-serif;
-    padding-top: 70px;
 }
 
 span.select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -95,6 +94,10 @@ footer {
     .navbar-right {
         float: none !important;
     }
+}
+
+#content {
+    padding-top: 1em;
 }
 
 /*Button's text is all in caps and bold. When adding html markup text should be all in lowercase. */
