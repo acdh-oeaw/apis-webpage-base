@@ -35,3 +35,5 @@ def get_project_md():
 
 
 PROJECT_METADATA = get_project_md()
+
+SHARED_URL = settings.SHARED_URL

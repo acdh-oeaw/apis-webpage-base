@@ -1,6 +1,10 @@
 from django.conf import settings
 from . utils import PROJECT_METADATA
-from . utils import PROJECT_TITLE_IMG, PROJECT_LOGO, PROJECT_CSS
+from . utils import PROJECT_TITLE_IMG, PROJECT_LOGO, PROJECT_CSS, SHARED_URL
+
+
+def shared_url(request):
+    return {'SHARED_URL': SHARED_URL}
 
 
 def title_img(request):
