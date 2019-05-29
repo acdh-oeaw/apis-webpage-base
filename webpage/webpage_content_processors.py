@@ -3,6 +3,10 @@ from . utils import PROJECT_METADATA
 from . utils import PROJECT_TITLE_IMG, PROJECT_LOGO, PROJECT_CSS, SHARED_URL
 
 
+def apis_app_name(request):
+    return {'PROJECT_NAME': settings.PROJECT_NAME}
+
+
 def shared_url(request):
     return {'SHARED_URL': SHARED_URL}
 

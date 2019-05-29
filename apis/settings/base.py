@@ -138,6 +138,7 @@ TEMPLATES = [
                 "webpage.webpage_content_processors.logo_img",
                 "webpage.webpage_content_processors.custom_css",
                 "webpage.webpage_content_processors.shared_url",
+                "webpage.webpage_content_processors.apis_app_name",
                 "apis_core.context_processors.custom_context_processors.add_entities",
                 "apis_core.context_processors.custom_context_processors.add_relations",
                 "apis_core.context_processors.custom_context_processors.add_apis_settings",
