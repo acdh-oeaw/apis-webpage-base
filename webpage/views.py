@@ -14,7 +14,7 @@ from django.template import loader
 from django.views.generic import TemplateView
 
 from .forms import form_user_login
-from .metadata import PROJECT_METADATA as PM
+from .utils import PROJECT_METADATA as PM
 
 
 def get_imprint_url():

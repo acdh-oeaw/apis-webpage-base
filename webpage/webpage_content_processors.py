@@ -1,4 +1,5 @@
 from django.conf import settings
+from . utils import PROJECT_METADATA
 
 
 def installed_apps(request):
