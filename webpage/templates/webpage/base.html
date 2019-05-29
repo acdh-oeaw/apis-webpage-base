@@ -26,7 +26,7 @@
     <link rel="stylesheet" id="fundament-styles"  href="{{ SHARED_URL }}fundament/dist/fundament/css/fundament.min.css" type="text/css"/>
     <!-- <link rel="stylesheet" href="{% static 'webpage/css/fundament_new.css' %}" rel="stylesheet"/> -->
     <link rel="stylesheet" href="{{ PROJECT_CSS }}" rel="stylesheet"/>
-    <link rel="stylesheet" href="{% static 'webpage/libraries/scroll-to-top/css/ap-scroll-top.min.css'%}" />
+    <link rel="stylesheet" href="{{ SHARED_URL }}apis/libraries/scroll-to-top/css/ap-scroll-top.min.css" />
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <script type="text/javascript">
         window.cookieconsent_options = {
@@ -213,13 +213,11 @@
         {% block scripts %}
         <script src="{{ SHARED_URL }}fundament/dist/fundament/js/fundament.min.js"></script>
 	    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-        <script src="{% static 'webpage/libraries/scroll-to-top/js/ap-scroll-top.min.js'%}"></script>
+        <script src="{{ SHARED_URL }}apis/libraries/scroll-to-top/js/ap-scroll-top.min.js"></script>
 
         {% endblock %}
         {% block scripts2 %}
         {% endblock scripts2 %}
-        <noscript>
-            <img src="//piwik.apollo.arz.oeaw.ac.at/piwik.php?idsite=48" style="border:0;" alt=""/>
-        </noscript>
+
         </body>
         </html>
