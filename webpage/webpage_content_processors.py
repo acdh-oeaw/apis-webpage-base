@@ -1,6 +1,6 @@
 from django.conf import settings
 from . utils import PROJECT_METADATA
-from . utils import PROJECT_TITLE_IMG, PROJECT_LOGO
+from . utils import PROJECT_TITLE_IMG, PROJECT_LOGO, PROJECT_CSS
 
 
 def title_img(request):
@@ -9,6 +9,10 @@ def title_img(request):
 
 def logo_img(request):
     return {'PROJECT_LOGO': PROJECT_LOGO}
+
+
+def custom_css(request):
+    return {'PROJECT_CSS': PROJECT_CSS}
 
 
 def installed_apps(request):

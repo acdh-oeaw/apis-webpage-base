@@ -16,6 +16,11 @@ try:
 except AttributeError:
     PROJECT_LOGO = "{}/project-logo.jpg".format(PROJECT_STATIC_URL)
 
+try:
+    PROJECT_CSS = settings.CUSTOM_CSS
+except AttributeError:
+    PROJECT_CSS = "{}/style.css".format(PROJECT_STATIC_URL)
+
 
 def get_project_md():
     try:
