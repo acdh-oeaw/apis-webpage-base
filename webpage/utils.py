@@ -6,6 +6,16 @@ from django.conf import settings
 PROJECT_STATIC_URL = "{}{}".format(settings.PROJECT_SHARED, settings.PROJECT_NAME)
 PROJECT_MD_URL = "{}/metadata.json".format(PROJECT_STATIC_URL)
 
+try:
+    PROJECT_TITLE_IMG = settings.CUSTOM_TITLE_IMG
+except AttributeError:
+    PROJECT_TITLE_IMG = "{}/project-title-img.jpg".format(PROJECT_STATIC_URL)
+
+try:
+    PROJECT_LOGO_IMG = settings.CUSTOM_LOGO_IMG
+except AttributeError:
+    PROJECT_LOGO = "{}/project-logo.jpg".format(PROJECT_STATIC_URL)
+
 
 def get_project_md():
     try:

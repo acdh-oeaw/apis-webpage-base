@@ -1,5 +1,14 @@
 from django.conf import settings
 from . utils import PROJECT_METADATA
+from . utils import PROJECT_TITLE_IMG, PROJECT_LOGO
+
+
+def title_img(request):
+    return {'PROJECT_TITLE_IMG': PROJECT_TITLE_IMG}
+
+
+def logo_img(request):
+    return {'PROJECT_LOGO': PROJECT_LOGO}
 
 
 def installed_apps(request):

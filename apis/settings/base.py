@@ -134,6 +134,8 @@ TEMPLATES = [
                 "webpage.webpage_content_processors.installed_apps",
                 "webpage.webpage_content_processors.is_dev_version",
                 "webpage.webpage_content_processors.get_db_name",
+                "webpage.webpage_content_processors.title_img",
+                "webpage.webpage_content_processors.logo_img",
                 "apis_core.context_processors.custom_context_processors.add_entities",
                 "apis_core.context_processors.custom_context_processors.add_relations",
                 "apis_core.context_processors.custom_context_processors.add_apis_settings",
