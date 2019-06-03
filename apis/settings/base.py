@@ -68,7 +68,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "webpage",
     "browsing",
-    "stats",
     "django_extensions",
     "apis_core.apis_entities",
     "apis_core.apis_metainfo",
