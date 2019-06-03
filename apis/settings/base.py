@@ -79,6 +79,7 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "guardian",
     "charts",
+    "infos",
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
