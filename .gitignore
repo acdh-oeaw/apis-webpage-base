@@ -8,3 +8,4 @@ __pycache__/
 /apis/settings/server.py
 .ipynb_checkpoints
 /Untitled.ipynb
+/apis/settings/server_*

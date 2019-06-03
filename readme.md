@@ -83,7 +83,9 @@ We have developed (and still are developing) some additional packages to extend 
 This package is used to provide annotation functionalities for texts stored in APIS. If installed and
 
 # Customization
-Basic metadata of the project can be set in `apis.settings.base` by adapting `PROJECT_DEFAULT_MD`. The prefered way though is to provide a remote `metadata.json`. 
+Basic metadata of the project can be set in `apis.settings.base` by adapting `PROJECT_DEFAULT_MD`. The prefered way though is to provide a remote `metadata.json`.
+* A proper project description should be stored in `infos.models.AboutTheProject`
+* Info about the project's team members can be stored in `infos.models.TeamMember`.
 
 # References
 
