@@ -187,7 +187,8 @@
         {% if user.is_authenticated %}
             {% if DB_NAME %}
                 <div class="footer-imprint-bar">
-                    <small>{{ DB_NAME }}</small>
+                    <small>{{ DB_NAME }}</small><br />
+                    <small><a href="{% url 'infos:projectinst_browse' %}">customize the project partners here</a></small>
                 </div>
             {% endif %}
         {% endif %}
@@ -198,7 +199,7 @@
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
         <script src="{{ SHARED_URL }}apis/libraries/scroll-to-top/js/ap-scroll-top.min.js"></script>
     {% endblock %}
-    
+
     {% block scripts2 %}
     {% endblock scripts2 %}
 
