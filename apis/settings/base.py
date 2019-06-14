@@ -79,7 +79,6 @@ INSTALLED_APPS = [
     "guardian",
     "charts",
     "infos",
-    "rest_framework_filters"
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
