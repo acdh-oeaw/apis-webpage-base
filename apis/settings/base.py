@@ -101,7 +101,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ),
     'DEFAULT_FILTER_BACKENDS': (
-        'rest_framework_filters.backends.RestFrameworkFilterBackend',
+       'url_filter.integrations.drf.DjangoFilterBackend',
     ),
 }
 
