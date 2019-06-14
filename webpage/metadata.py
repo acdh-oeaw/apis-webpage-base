@@ -13,7 +13,7 @@ PROJECT_METADATA = {
     'version': ['apis_core', 'charts', 'django'],
     'matomo_id': '',
     'matomo_url': '',
-    'imprint': '',
+    'imprint': '/imprint',
     'social_media': [
         ('fab fa-twitter', 'https://twitter.com/ACDH_OeAW'),
         ('fab fa-youtube', 'https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w'),

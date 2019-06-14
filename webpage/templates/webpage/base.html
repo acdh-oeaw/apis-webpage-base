@@ -17,13 +17,14 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{% static 'webpage/img/favicon/favicon-16x16.png' %}"/>
         <link rel="manifest" href="{% static 'webpage/img/favicon/manifest.json' %}"/>
         <link rel="mask-icon" href="{% static 'webpage/img/favicon/safari-pinned-tab.svg' %}" color="#00aba9"/>
-        <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" />
 	<meta name="theme-color" content="#ffffff"/>
     <!--favicons end -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {% include "apis_entities/apis_templatetag.html" %}
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:400,500" rel="stylesheet" />
-    <link rel="stylesheet" href="{% static 'webpage/css/fundament.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" id="fundament-styles"  href="https://shared.acdh.oeaw.ac.at/fundament/dist/fundament/css/fundament.min.css" type="text/css"/>
     <!-- <link rel="stylesheet" href="{% static 'webpage/css/fundament_new.css' %}" rel="stylesheet"/> -->
     <link rel="stylesheet" href="{% static 'webpage/css/style.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'webpage/libraries/scroll-to-top/css/ap-scroll-top.min.css'%}" />
@@ -73,7 +74,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{% url 'webpage:staticpage' template='about' %}">About</a>
-                                <a class="dropdown-item" href="{% url 'webpage:staticpage' template='imprint' %}">Imprint | Impressum</a>
+                                <a class="dropdown-item" href="{% projects_metadata 'imprint' %}">Imprint | Impressum</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -105,6 +106,7 @@
                                 {% endfor %}
                             </div>
                         </li>
+                        {% if user.is_authenticated %}
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">add Entities
                                 <span class="caret"/>
@@ -115,6 +117,7 @@
                                 {% endfor %}
                             </div>
                         </li>
+                    {% endif %}
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown ml-auto">
                         <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -163,36 +166,31 @@
                 </div>
                 <div class="row">
                     <div class="footer-widget col-lg-1 col-md-2 col-sm-2 col-xs-6 col-3">
-              <div class="textwidget custom-html-widget">
-                <a href="/"><img src="https://www.oeaw.ac.at/fileadmin/oeaw/institutstemplate/inz/img/inzlogo.png" class="image" alt="INZ Logo" title="INZ"></a>
-              </div>
-            </div><!-- .footer-widget -->
-            <div class="footer-widget col-lg-4 col-md-4 col-sm-6 col-9">
-              <div class="textwidget custom-html-widget">
-                <p>
-                 INZ
-                  <br>
-                  Institute of Modern and Contemporary History at the Austrian Academy of Sciences
-                  <br>
-                  Austrian Academy of Sciences
-                </p>
-                <p>
-                  Hollandstraße 11-13 / 1st floor
-                  <br>
-                  1020 Vienna
-                </p>
-                <p>
-                  T +43 1 51581-7300
-                  <br>
-                  E: <a href="mailto:INZ@oeaw.ac.at">INZ@oeaw.ac.at</a>
-                </p>
-              </div>
-            </div>
-                    <div class="footer-widget col-md-3">
-                        <img src="{% static 'webpage/img/partner_logo.png' %}" alt="Partner Logo" title="ACDH-OeAW"/>
+                      <div class="textwidget custom-html-widget">
+                          <img src="{% static 'webpage/img/partner_logo.png' %}" alt="Partner Logo" title="ACDH-OeAW"/>
+                      </div>
                     </div>
-                    <div class="footer-widget col-md-3">
-                        <img src="https://www.oeaw.ac.at/typo3conf/ext/oeaw_website/Resources/Public/Images/oeaw_logo_446x192.png" alt="OeAW" title="OeAW"/>
+                    <!-- .footer-widget -->
+                    <div class="footer-widget col-lg-4 col-md-4 col-sm-6 col-9">
+                      <div class="textwidget custom-html-widget">
+                        <p>
+                          ACDH-ÖAW
+                          <br>
+                          Austrian Centre for Digital Humanities
+                          <br>
+                          Austrian Academy of Sciences
+                        </p>
+                        <p>
+                          Sonnenfelsgasse 19,
+                          <br>
+                          1010 Vienna
+                        </p>
+                        <p>
+                          T: +43 1 51581-2200
+                          <br>
+                          E: <a href="mailto:acdh@oeaw.ac.at">acdh@oeaw.ac.at</a>
+                        </p>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -212,9 +210,8 @@
             </div>
         </footer>
         {% block scripts %}
-        <script src="https://fundament.acdh.oeaw.ac.at/dist/fundament/js/fundament.min.js"></script>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css" />
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+        <script src="https://shared.acdh.oeaw.ac.at/fundament/dist/fundament/js/fundament.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
         <script src="{% static 'webpage/libraries/scroll-to-top/js/ap-scroll-top.min.js'%}"></script>
         <script type="text/javascript">
             $(document).ready(function() {
