@@ -222,7 +222,8 @@ APIS_ENTITIES = {
             ('gender', {'label': 'Gender'}),
             ('start_date', {'label': 'Date of Birth'}),
             ('end_date', {'label': 'Date of Death'}),
-            ('profession', {'label': 'Profession'}),
+            # TODO __sresch__ remove
+            # ('profession', {'label': 'Profession'}),
             ('collection', {'label': 'Collection'})
         ]
     },
