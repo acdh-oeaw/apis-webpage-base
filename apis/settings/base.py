@@ -392,6 +392,7 @@ APIS_VOCABULARIES = {"exclude": ["userAdded"]}
 
 APIS_ENTITIES = {
     "Place": {
+        "merge": True,
         "search": ["name"],
         "table_fields": ["name"],
         "additional_cols": ["lat", "lng", "part_of"],
@@ -419,6 +420,7 @@ APIS_ENTITIES = {
         "api_exclude": [],
     },
     "Institution": {
+        "merge": True,
         "search": ["name"],
         "list_filters": [
             ("name", {"method": "wildcard_filter", "label": "Name"}),
@@ -428,10 +430,12 @@ APIS_ENTITIES = {
         ],
     },
     "Work": {
+        "merge": True,
         "search": ["name"],
         "list_filters": [("name", {"method": "wildcard_filter", "label": "Name"})],
     },
     "Event": {
+        "merge": True,
         "search": ["name"],
         "list_filters": [("name", {"method": "wildcard_filter", "label": "Name"})],
     },
