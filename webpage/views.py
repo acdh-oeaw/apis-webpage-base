@@ -134,7 +134,6 @@ def project_info(request):
         ).strip().decode("utf8"),
     )
     rest_settings = settings.REST_FRAMEWORK.get("DEFAULT_PERMISSION_CLASSES", [])
-    print(rest_settings)
     if "ReadOnly" in " ".join(rest_settings):
         info_dict["public"] = "public"
     else:
