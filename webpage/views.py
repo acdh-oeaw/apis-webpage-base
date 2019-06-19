@@ -13,8 +13,9 @@ from django.shortcuts import render, render_to_response
 from django.template import loader
 from django.views.generic import TemplateView
 
-from .forms import form_user_login
-from .utils import PROJECT_METADATA as PM
+from . forms import form_user_login
+from . utils import PROJECT_METADATA as PM
+from . utils import PROJECT_TITLE_IMG, PROJECT_LOGO
 
 
 def get_imprint_url():
@@ -122,6 +123,8 @@ def project_info(request):
     else:
         del info_dict["matomo_id"]
         del info_dict["matomo_url"]
+    info_dict["title_img"] = PROJECT_TITLE_IMG
+    info_dict["project_logo"] = PROJECT_LOGO
     info_dict["base_tech"] = "django"
     info_dict["framework"] = "apis"
     info_dict["version webpage"] = "{}/commit/{}".format(
