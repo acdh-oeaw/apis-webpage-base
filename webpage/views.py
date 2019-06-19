@@ -126,8 +126,16 @@ def project_info(request):
     info_dict["framework"] = "apis"
     info_dict["version webpage"] = "{}/commit/{}".format(
         info_dict["github"],
-        subprocess.check_output(["git", "describe", "--always"], cwd=settings.BASE_DIR).strip().decode("utf8"),
+        subprocess.check_output(
+            ["git", "describe", "--always"], cwd=settings.BASE_DIR
+        ).strip().decode("utf8"),
     )
+    rest_settings = settings.REST_FRAMEWORK.get("DEFAULT_PERMISSION_CLASSES", [])
+    print(rest_settings)
+    if "ReadOnly" in " ".join(rest_settings):
+        info_dict["public"] = "public"
+    else:
+        info_dict["public"] = "restricted"
     vers = []
     for v in info_dict['version']:
         res2 = dict()
