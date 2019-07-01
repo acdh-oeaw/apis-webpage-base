@@ -10,3 +10,7 @@ __pycache__/
 /Untitled.ipynb
 /apis/settings/server_*
 /apis/settings/local_*
+/apis_core
+/graphs
+/theme
+/whoosh_index

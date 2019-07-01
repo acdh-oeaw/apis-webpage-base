@@ -22,5 +22,7 @@ else:
         url(r'^', include('webpage.urls', namespace='webpage')),
     ]
 
+if 'haystack' in settings.INSTALLED_APPS:
+    urlpatterns = urlpatterns + [url(r'^search/', include('haystack.urls')), ]
 
 handler404 = 'webpage.views.handler404'
