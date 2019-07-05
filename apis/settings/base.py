@@ -432,12 +432,20 @@ APIS_ENTITIES = {
     "Work": {
         "merge": True,
         "search": ["name"],
-        "list_filters": [("name", {"method": "wildcard_filter", "label": "Name"})],
+        "list_filters": [
+            ("name", {"method": "wildcard_filter", "label": "Name"}),
+            ("kind", {"label": "Kind of Work"}),
+            ("collection", {"label": "Collection"})
+        ],
     },
     "Event": {
         "merge": True,
         "search": ["name"],
-        "list_filters": [("name", {"method": "wildcard_filter", "label": "Name"})],
+        "list_filters": [
+            ("name", {"method": "wildcard_filter", "label": "Name"}),
+            ("kind", {"label": "Kind of Event"}),
+            ("collection", {"label": "Collection"}),
+        ],
     },
 }
 
