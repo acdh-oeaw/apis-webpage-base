@@ -131,7 +131,6 @@ class GenericListView(django_tables2.SingleTableView):
         if 'charts' in settings.INSTALLED_APPS:
             model = self.model
             app_label = model._meta.app_label
-            print(app_label)
             filtered_objs = ChartConfig.objects.filter(
                 model_name=model.__name__.lower(),
                 app_name=app_label
@@ -163,7 +162,7 @@ class GenericListView(django_tables2.SingleTableView):
                 try:
                     df = pd.DataFrame(
                         list(
-                            self.model.objects.all().values_list(*[x[0] for x in conf_items])
+                            self.get_queryset().values_list(*[x[0] for x in conf_items])
                         ),
                         columns=[x[1] for x in conf_items]
                     )
