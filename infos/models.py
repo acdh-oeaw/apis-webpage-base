@@ -14,7 +14,7 @@ class ProjectInst(models.Model):
         verbose_name="Abbreviation"
         )
     description = models.TextField(
-        max_length=300, blank=True,
+        blank=True,
         verbose_name="Short description of the Institution"
         )
     website = models.URLField(
