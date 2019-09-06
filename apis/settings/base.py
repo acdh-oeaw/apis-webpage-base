@@ -395,7 +395,7 @@ APIS_ENTITIES = {
         "merge": True,
         "search": ["name"],
         "table_fields": ["name"],
-        "additional_cols": ["lat", "lng", "part_of"],
+        "additional_cols": ["lat", "lng", "part_of", "id"],
         "list_filters": [
             ("name", {"method": "wildcard_filter", "label": "Name"}),
             ("status", {"method": "wildcard_filter", "label": "Status"}),
@@ -407,7 +407,7 @@ APIS_ENTITIES = {
         "search": ["name", "first_name"],
         "form_order": ["first_name", "name"],
         "table_fields": ["name", "first_name", "start_date", "end_date"],
-        "additional_cols": ["profession", "gender"],
+        "additional_cols": ["id", "profession", "gender"],
         "list_filters": [
             ("name", {"method": "name_label_filter", "label": "Name complete"}),
             ("first_name", {"method": "wildcard_filter", "label": "Firstname"}),
@@ -422,6 +422,7 @@ APIS_ENTITIES = {
     "Institution": {
         "merge": True,
         "search": ["name"],
+        "additional_cols": ["id", ],
         "list_filters": [
             ("name", {"method": "wildcard_filter", "label": "Name"}),
             ("start_date", {"label": "Date of foundation"}),
@@ -432,6 +433,7 @@ APIS_ENTITIES = {
     "Work": {
         "merge": True,
         "search": ["name"],
+        "additional_cols": ["id", ],
         "list_filters": [
             ("name", {"method": "wildcard_filter", "label": "Name"}),
             ("kind", {"label": "Kind of Work"}),
@@ -441,6 +443,7 @@ APIS_ENTITIES = {
     "Event": {
         "merge": True,
         "search": ["name"],
+        "additional_cols": ["id", ],
         "list_filters": [
             ("name", {"method": "wildcard_filter", "label": "Name"}),
             ("kind", {"label": "Kind of Event"}),
