@@ -422,21 +422,22 @@ APIS_ENTITIES = {
     "Institution": {
         "merge": True,
         "search": ["name"],
-        "additional_cols": ["id", ],
+        "additional_cols": ["id", "kind", ],
         "list_filters": [
             ("name", {"method": "wildcard_filter", "label": "Name"}),
             ("start_date", {"label": "Date of foundation"}),
             ("end_date", {"label": "Date of termination"}),
+            ("kind", {"label": "Type of the Institution"}),
             ("collection", {"label": "Collection"}),
         ],
     },
     "Work": {
         "merge": True,
         "search": ["name"],
-        "additional_cols": ["id", ],
+        "additional_cols": ["id", "kind", ],
         "list_filters": [
             ("name", {"method": "wildcard_filter", "label": "Name"}),
-            ("kind", {"label": "Kind of Work"}),
+            ("kind", {"label": "Type of Work"}),
             ("collection", {"label": "Collection"})
         ],
     },
@@ -446,7 +447,7 @@ APIS_ENTITIES = {
         "additional_cols": ["id", ],
         "list_filters": [
             ("name", {"method": "wildcard_filter", "label": "Name"}),
-            ("kind", {"label": "Kind of Event"}),
+            ("kind", {"label": "Type of Event"}),
             ("collection", {"label": "Collection"}),
         ],
     },
