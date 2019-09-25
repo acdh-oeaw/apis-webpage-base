@@ -1,6 +1,6 @@
 stages:
   - test
-image: python:3.6
+image: python:latest
 services:
   - mysql
 variables:
