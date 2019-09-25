@@ -1,0 +1,13 @@
+stages:
+  - test
+  - deploy
+image: python:3.6
+services:
+  - mysql
+test:
+  stage: test
+  script:
+  # this configures Django application to use attached postgres database that is run on `postgres` host
+  - pip install -r requirements.txt
+  - python manage.py test
+
