@@ -10,7 +10,7 @@ variables:
 test:
   stage: test
   script:
-          - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@localhost:3306/$MYSQL_DATABASE
-          - pip3 install -r requirements.txt
-          - python3 manage.py test --settings=apis.settings.test
+          - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@localhost:3306/$MYSQL_DATABASE 
+          - python-3.6 -m pip install -r requirements.txt
+          - python-3.6 manage.py test --settings=apis.settings.test
 
