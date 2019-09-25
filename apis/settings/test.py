@@ -17,6 +17,8 @@ DEV_VERSION = False
 
 INSTALLED_APPS += ['gm2m', 'apis_highlighter', 'apis_bibsonomy']
 
+DATABASES = {}
+
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
