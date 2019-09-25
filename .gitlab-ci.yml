@@ -11,6 +11,6 @@ test:
   stage: test
   script:
           - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@localhost:3306/$MYSQL_DATABASE
-          - pip install -r requirements.txt
-          - python manage.py test --settings=apis.settings.test
+          - pip3 install -r requirements.txt
+          - python3 manage.py test --settings=apis.settings.test
 
