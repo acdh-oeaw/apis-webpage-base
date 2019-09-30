@@ -12,5 +12,10 @@ urlpatterns = [
     url(r'^', include('webpage.urls', namespace='webpage')),
 ]
 
+if 'transkribus' in settings.INSTALLED_APPS:
+    urlpatterns = [
+        url(r'^transkribus/', include('transkribus.urls', namespace="trp")),
+    ] + urlpatterns
+
 
 handler404 = 'webpage.views.handler404'
