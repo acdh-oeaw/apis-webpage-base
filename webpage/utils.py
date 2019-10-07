@@ -12,7 +12,8 @@ except AttributeError:
     PROJECT_TITLE_IMG = "{}/project-title-img.jpg".format(PROJECT_STATIC_URL)
 
 try:
-    PROJECT_LOGO_IMG = settings.CUSTOM_LOGO_IMG
+    PROJECT_LOGO = settings.CUSTOM_LOGO_IMG
+    print(PROJECT_LOGO)
 except AttributeError:
     PROJECT_LOGO = "{}/project-logo.jpg".format(PROJECT_STATIC_URL)
 
