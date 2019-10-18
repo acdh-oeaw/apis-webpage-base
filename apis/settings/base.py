@@ -76,6 +76,8 @@ INSTALLED_APPS = [
     "apis_core.apis_labels",
     # 'apis_core.apis_vis',
     "rest_framework.authtoken",
+    "rest_framework_swagger",
+    "drf_yasg",
     "guardian",
     "charts",
     "infos",
