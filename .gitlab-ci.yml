@@ -1,6 +1,8 @@
 stages:
   - test
 image: python:3.6
+tags:
+  - python
 services:
   - mysql
 variables:
