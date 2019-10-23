@@ -1,8 +1,6 @@
 stages:
   - test
 image: python:3.6
-tags:
-  - python
 services:
   - mysql
 variables:
@@ -11,6 +9,8 @@ variables:
   MYSQL_ROOT_PASSWORD: "sggdjagg"
   GIT_STRATEGY: clone
 test:
+  tags:
+          - python
   stage: test
   script:
           - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@localhost:3306/$MYSQL_DATABASE 
