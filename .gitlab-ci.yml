@@ -19,6 +19,6 @@ test:
           - sed -i '8,9 s/^/#/' apis/urls.py
           - python manage.py makemigrations --settings=apis.settings.test
           - python manage.py migrate --settings=apis.settings.test
-          - sed -i '8,9 s/^#/^/' apis/urls.py
+          - sed -i '8,9 s/^#//' apis/urls.py
           - python manage.py test --settings=apis.settings.test
 
