@@ -16,7 +16,7 @@ test:
           - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@mysql:3306/$MYSQL_DATABASE
           - python -m pip install -r requirements.txt
           - python -m pip install mysqlclient
-          - python -m manage.py makemigrations --settings=apis.settings.test
-          - python -m manage.py migrate --settings=apis.settings.test
+          - python manage.py makemigrations --settings=apis.settings.test
+          - python manage.py migrate --settings=apis.settings.test
           - python manage.py test --settings=apis.settings.test
 
