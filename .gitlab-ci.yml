@@ -2,7 +2,7 @@ stages:
   - test
 image: python:3.6
 services:
-  - mysql
+  - mysql:5.7
 variables:
   # Configure mysql environment variables (https://hub.docker.com/_/mysql/)
   MYSQL_DATABASE: "testdb_apis"
