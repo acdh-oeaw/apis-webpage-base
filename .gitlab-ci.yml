@@ -13,7 +13,7 @@ test:
           - python
   stage: test
   script:
-          - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@127.0.0.1:3306/$MYSQL_DATABASE
+          - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@mysql:3306/$MYSQL_DATABASE
           - python -m pip install -r requirements.txt
           - python -m pip install mysqlclient
           - python manage.py test --settings=apis.settings.test
