@@ -390,40 +390,24 @@ APIS_RELATIONS = {
 
 APIS_VOCABULARIES = {"exclude": ["userAdded"]}
 
+
+# TODO __sresch__ : change back the list_filters into lists instead of dictionaries
+
 APIS_ENTITIES = {
     "Place": {
         "merge": True,
         "search": ["name"],
         "table_fields": ["name"],
         "additional_cols": ["lat", "lng", "part_of"],
-        "list_filters": [
-            ("name", {"method": "default_text_filter", "label": "Name"}),
-            ("status", {"method": "default_text_filter", "label": "Status"}),
-            ("collection", {"label": "Collection"}),
-
-            ("placeA_set", {"label": "related place A"}),
-            ("placeA_set__name", {"method": "default_text_filter", "label": "related place A name"}),
-            ("placeA_relationtype_set__name", {"method": "default_text_filter", "label": "related place A relationtype name"}),
-
-            ("placeB_set", {"label": "related place B"}),
-            ("placeB_set__name", {"method": "default_text_filter", "label": "related place B name"}),
-            ("placeB_relationtype_set__name", {"method": "default_text_filter", "label": "related place B relationtype name"}),
-
-            ("person_set", {"label": "related person"}),
-            ("person_set__name", {"method": "default_text_filter", "label": "related person name"}),
-            ("person_relationtype_set__name", {"method": "default_text_filter", "label": "related person relationtype name"}),
-
-            # commented out to reduce the visual noise in the UI for now
-            #
-            # ("institution_set", {"label": "related institution"}),
-            # ("institution_set__name", {"method": "default_text_filter", "label": "related institution name"}),
-            #
-            # ("work_set", {"label": "related work"}),
-            # ("work_set__name", {"method": "default_text_filter", "label": "related work name"}),
-            #
-            # ("event_set", {"label": "related event"}),
-            # ("event_set__name", {"method": "default_text_filter", "label": "related event name"}),
-        ],
+        "list_filters": {
+            "name": {},
+            "collection": {"label": "Collection"},
+            "kind": {"label": "Kind of Place"},
+            "related_entity_name": {},
+            "related_relationtype_name": {},
+            "lat": {},
+            "lng": {},
+        },
     },
     "Person": {
         "merge": True,
@@ -431,139 +415,56 @@ APIS_ENTITIES = {
         "form_order": ["first_name", "name"],
         "table_fields": ["name", "first_name", "start_date", "end_date"],
         "additional_cols": ["profession", "gender"],
-        "list_filters": [
-            ("name", {"method": "name_label_filter", "label": "Name or Label"}),
-            ("first_name", {"method": "default_text_filter", "label": "Firstname"}),
-            ("gender", {"label": "Gender"}),
-            ("start_date", {"label": "Date of Birth"}),
-            ("end_date", {"label": "Date of Death"}),
-            ("profession", {"label": "Profession"}),
-            ("collection", {"label": "Collection"}),
-
-            ("place_set", {"label": "related place"}),
-            ("place_set__name", {"method": "default_text_filter", "label": "related place name"}),
-            ("place_relationtype_set__name", {"method": "default_text_filter", "label": "related place relationtype name"}),
-
-            ("personA_set", {"label": "related person A"}),
-            ("personA_set__name", {"method": "default_text_filter", "label": "related person A name"}),
-            ("personA_relationtype_set__name", {"method": "default_text_filter", "label": "related person relationtype A name"}),
-            ("personA_set__name", {"method": "default_text_filter", "label": "related person A name"}),
-            ("personB_set", {"label": "related person B"}),
-            ("personB_relationtype_set__name", {"method": "default_text_filter", "label": "related person relationtype B name"}),
-
-            # commented out to reduce the visual noise in the UI for now
-            #
-            # ("institution_set", {"label": "related institution"}),
-            # ("institution_set__name", {"method": "default_text_filter", "label": "related institution name"}),
-            # ("institution_relationtype_set__name", {"method": "default_text_filter", "label": "related institution relationtype name"}),
-            #
-            # ("work_set", {"label": "related work"}),
-            # ("work_set__name", {"method": "default_text_filter", "label": "related work name"}),
-            # ("work_relationtype_set__name", {"method": "default_text_filter", "label": "related work relationtype name"}),
-            #
-            # ("event_set", {"label": "related event"}),
-            # ("event_set__name", {"method": "default_text_filter", "label": "related event name"}),
-            # ("event_relationtype_set__name", {"method": "default_text_filter", "label": "related event relationtype name"}),
-        ],
+        "list_filters": {
+            "name": {},
+            "gender": {"label": "Gender"},
+            "start_date": {"label": "Date of Birth"},
+            "end_date": {"label": "Date of Death"},
+            "profession": {"label": "Profession"},
+            "title": {"label": "Title"},
+            "collection": {"label": "Collection"},
+            "related_entity_name": {},
+            "related_relationtype_name": {},
+        },
         "api_exclude": [],
     },
     "Institution": {
         "merge": True,
         "search": ["name"],
-        "list_filters": [
-            ("name", {"method": "default_text_filter", "label": "Name"}),
-            ("start_date", {"label": "Date of foundation"}),
-            ("end_date", {"label": "Date of termination"}),
-            ("collection", {"label": "Collection"}),
-
-            # commented out to reduce the visual noise in the UI for now
-            #
-            # ("place_set", {"label": "related place"}),
-            # ("place_set__name", {"method": "default_text_filter", "label": "related place name"}),
-
-            ("person_set", {"label": "related person"}),
-            ("person_set__name", {"method": "default_text_filter", "label": "related person name"}),
-            ("person_relationtype_set__name", {"method": "default_text_filter", "label": "related person name"}),
-
-            ("institutionA_set", {"label": "related institution A"}),
-            ("institutionA_set__name", {"method": "default_text_filter", "label": "related institution A name"}),
-            ("institutionA_relationtype_set__name", {"method": "default_text_filter", "label": "related institution A relationtype name"}),
-            ("institutionB_set", {"label": "related institution B"}),
-            ("institutionB_set__name", {"method": "default_text_filter", "label": "related institution B name"}),
-            ("institutionB_relationtype_set__name", {"method": "default_text_filter", "label": "related institution B relationtype name"}),
-
-            # commented out to reduce the visual noise in the UI for now
-            #
-            # ("work_set", {"label": "related work"}),
-            # ("work_set__name", {"method": "default_text_filter", "label": "related work name"}),
-            #
-            # ("event_set", {"label": "related event"}),
-            # ("event_set__name", {"method": "default_text_filter", "label": "related event name"}),
-        ],
+        "list_filters": {
+            "name": {"label": "Name or label of institution"},
+            "kind": {"label": "Kind of Institution"},
+            "start_date": {"label": "Date of foundation"},
+            "end_date": {"label": "Date of termination"},
+            "collection": {"label": "Collection"},
+            "related_entity_name": {},
+            "related_relationtype_name": {},
+        },
     },
     "Work": {
         "merge": True,
         "search": ["name"],
-        "list_filters": [
-            ("name", {"method": "default_text_filter", "label": "Name"}),
-            ("kind", {"label": "Kind of Work"}),
-            ("collection", {"label": "Collection"}),
-
-            # commented out to reduce the visual noise in the UI for now
-            #
-            # ("place_set", {"label": "related place"}),
-            # ("place_set__name", {"method": "default_text_filter", "label": "related place name"}),
-            #
-            # ("institution_set", {"label": "related institution"}),
-            # ("institution_set__name", {"method": "default_text_filter", "label": "related institution name"}),
-
-            ("person_set", {"label": "related person"}),
-            ("person_set__name", {"method": "default_text_filter", "label": "related person name"}),
-            ("person_relationtype_set__name", {"method": "default_text_filter", "label": "related person relationtype name"}),
-
-            ("workA_set", {"label": "related work A"}),
-            ("workA_set__name", {"method": "default_text_filter", "label": "related work A name"}),
-            ("workA_relationtype_set__name", {"method": "default_text_filter", "label": "related work A relationtype name"}),
-            ("workB_set", {"label": "related work B"}),
-            ("workB_set__name", {"method": "default_text_filter", "label": "related work B name"}),
-            ("workB_relationtype_set__name", {"method": "default_text_filter", "label": "related work B relationtype name"}),
-
-            # commented out to reduce the visual noise in the UI for now
-            #
-            # ("event_set", {"label": "related event"}),
-            # ("event_set__name", {"method": "default_text_filter", "label": "related event name"}),
-        ],
+        "list_filters": {
+            "name": {"label": "Name of work"},
+            "kind": {"label": "Kind of Work"},
+            "start_date": {"label": "Date of creation"},
+            "collection": {"label": "Collection"},
+            "related_entity_name": {},
+            "related_relationtype_name": {},
+        },
     },
     "Event": {
         "merge": True,
         "search": ["name"],
-        "list_filters": [
-            ("name", {"method": "default_text_filter", "label": "Name"}),
-            ("kind", {"label": "Kind of Event"}),
-            ("collection", {"label": "Collection"}),
-
-            # commented out to reduce the visual noise in the UI for now
-            #
-            # ("place_set", {"label": "related place"}),
-            # ("place_set__name", {"method": "default_text_filter", "label": "related place name"}),
-            #
-            # ("person_set", {"label": "related person"}),
-            # ("person_set__name", {"method": "default_text_filter", "label": "related person name"}),
-            #
-            # ("institution_set", {"label": "related institution"}),
-            # ("institution_set__name", {"method": "default_text_filter", "label": "related institution name"}),
-
-            ("work_set", {"label": "related work"}),
-            ("work_set__name", {"method": "default_text_filter", "label": "related work name"}),
-            ("work_relationtype_set__name", {"method": "default_text_filter", "label": "related work relationtype name"}),
-
-            ("eventA_set", {"label": "related event A"}),
-            ("eventA_set__name", {"method": "default_text_filter", "label": "related event A name"}),
-            ("eventA_relationtype_set__name", {"method": "default_text_filter", "label": "related event A relationtype name"}),
-            ("eventB_set", {"label": "related event B"}),
-            ("eventB_set__name", {"method": "default_text_filter", "label": "related event B name"}),
-            ("eventB_relationtype_set__name", {"method": "default_text_filter", "label": "related event B relationtype name"}),
-        ],
+        "list_filters": {
+            "name": {"label": "Name of event"},
+            "kind": {"label": "Kind of Event"},
+            "start_date": {"label": "Date of beginning"},
+            "end_date": {"label": "Date of end"},
+            "collection": {"label": "Collection"},
+            "related_entity_name": {},
+            "related_relationtype_name": {},
+        },
     },
 }
 
