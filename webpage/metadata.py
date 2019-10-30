@@ -2,10 +2,10 @@
 # (by default) in the base.html and index.html
 
 PROJECT_METADATA = {
-    'title': 'Coladay',
+    'title': 'SOLA',
     'author': 'Matthias Schlögl, Peter Andorfer',
     'subtitle': '',
-    'description': """Entity store of the coladay project. More Info to come ...""",
+    'description': """Entity store of the SOLA project. More Info to come ...""",
     'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
     'production instance': None,
     'purpose_de': '',

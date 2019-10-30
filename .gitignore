@@ -8,3 +8,7 @@ __pycache__/
 /apis/settings/server.py
 .ipynb_checkpoints
 /Untitled.ipynb
+
+# sym links
+/apis_bibsonomy
+/apis_core
