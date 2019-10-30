@@ -76,6 +76,8 @@ INSTALLED_APPS = [
     "apis_core.apis_labels",
     # 'apis_core.apis_vis',
     "rest_framework.authtoken",
+    "rest_framework_swagger",
+    "drf_yasg",
     "guardian",
     "charts",
     "infos",
@@ -390,7 +392,6 @@ APIS_RELATIONS = {
 
 APIS_VOCABULARIES = {"exclude": ["userAdded"]}
 
-
 APIS_ENTITIES = {
     "Place": {
         "merge": True,
@@ -411,8 +412,8 @@ APIS_ENTITIES = {
         "merge": True,
         "search": ["name", "first_name"],
         "form_order": ["first_name", "name"],
-        "table_fields": ["name", "first_name", "start_date", "end_date"],
-        "additional_cols": ["profession", "gender"],
+        "table_fields": ["name", "first_name", "start_date_written", "end_date_written"],
+        "additional_cols": ["id", "profession", "gender"],
         "list_filters": [
             "name",
             {"gender": {"label": "Gender"}},
@@ -429,6 +430,7 @@ APIS_ENTITIES = {
     "Institution": {
         "merge": True,
         "search": ["name"],
+        "additional_cols": ["id", "kind", ],
         "list_filters": [
             {"name": {"label": "Name or label of institution"}},
             {"kind": {"label": "Kind of Institution"}},
@@ -442,6 +444,7 @@ APIS_ENTITIES = {
     "Work": {
         "merge": True,
         "search": ["name"],
+        "additional_cols": ["id", "kind", ],
         "list_filters": [
             {"name": {"label": "Name of work"}},
             {"kind": {"label": "Kind of Work"}},
@@ -454,6 +457,7 @@ APIS_ENTITIES = {
     "Event": {
         "merge": True,
         "search": ["name"],
+        "additional_cols": ["id", ],
         "list_filters": [
             {"name": {"label": "Name of event"}},
             {"kind": {"label": "Kind of Event"}},
