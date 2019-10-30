@@ -391,8 +391,6 @@ APIS_RELATIONS = {
 APIS_VOCABULARIES = {"exclude": ["userAdded"]}
 
 
-# TODO __sresch__ : change back the list_filters into lists instead of dictionaries
-
 APIS_ENTITIES = {
     "Place": {
         "merge": True,
@@ -400,7 +398,7 @@ APIS_ENTITIES = {
         "table_fields": ["name"],
         "additional_cols": ["lat", "lng", "part_of"],
         "list_filters": [
-            {"name": {"method": "string_wildcard_filter"}},
+            {"name": {"method": "name_label_filter"}},
             {"collection": {"label": "Collection"}},
             {"kind": {"label": "Kind of Place"}},
             "related_entity_name",
