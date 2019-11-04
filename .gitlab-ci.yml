@@ -17,10 +17,10 @@ test:
           - python -m pip install -r requirements.txt
           - python -m pip install mysqlclient
           - sed -i '8,9 s/^/#/' apis/urls.py
-          - python manage.py makemigrations --settings=apis.settings.test
-          - python manage.py migrate --settings=apis.settings.test
+          - python manage.py makemigrations --settings=apis.settings.settings_test_ci
+          - python manage.py migrate --settings=apis.settings.settings_test_ci
           - sed -i '8,9 s/^#//' apis/urls.py
-          - python manage.py makemigrations --settings=apis.settings.test
-          - python manage.py migrate --settings=apis.settings.test
-          - python manage.py test --settings=apis.settings.test
+          - python manage.py makemigrations --settings=apis.settings.settings_test_ci
+          - python manage.py migrate --settings=apis.settings.settings_test_ci
+          - python manage.py test --settings=apis.settings.settings_test_ci
 
