@@ -19,6 +19,7 @@ test:
           - sed -i '18,19 s/^/#/' apis/urls.py
           - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-core.git /build/apis
           - ln -s ../apis-core/apis_core apis_core
+          - ls /build/apis
           - python manage.py makemigrations --settings=apis.settings.settings_test_ci
           - python manage.py migrate --settings=apis.settings.settings_test_ci
           - sed -i '18,19 s/^#//' apis/urls.py
