@@ -17,10 +17,9 @@ test:
           - python -m pip install -r requirements.txt
           - python -m pip install mysqlclient
           - sed -i '18,19 s/^/#/' apis/urls.py
-          - mkdir /build/apis/apis-core
-          - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-core.git /build/apis/apis-core
+          - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-core.git /builds/acdh-oeaw/apis/apis-core
           - ln -s ../apis-core/apis_core apis_core
-          - ls /build/apis
+          - ls /builds/acdh-oeaw/apis
           - python manage.py makemigrations --settings=apis.settings.settings_test_ci
           - python manage.py migrate --settings=apis.settings.settings_test_ci
           - sed -i '18,19 s/^#//' apis/urls.py
