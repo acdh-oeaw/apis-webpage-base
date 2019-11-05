@@ -1,5 +1,6 @@
 stages:
   - test
+  - deploy
 image: python:3.6
 services:
   - mysql:5.7
@@ -9,6 +10,9 @@ variables:
   MYSQL_ROOT_PASSWORD: "sggdjagg"
   GIT_STRATEGY: clone
 test:
+  only:
+    refs:
+      - master
   tags:
           - python
   stage: test
@@ -27,4 +31,14 @@ test:
           - python manage.py makemigrations --settings=apis.settings.settings_test_ci
           - python manage.py migrate --settings=apis.settings.settings_test_ci
           - python manage.py test --settings=apis.settings.settings_test_ci
+deploy:
+  only:
+    refs:
+      - master
+  tags:
+    - python
+  stage: deploy
+  script:
+    - "curl -X POST -F token=806f307f44c8aa55c42ae876d8d95d -F ref=master https://gitlab.com/api/v4/projects/11810646/trigger/pipeline"
+
 
