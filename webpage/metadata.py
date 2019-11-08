@@ -5,7 +5,7 @@ PROJECT_METADATA = {
     'title': 'SOLA',
     'author': 'Matthias Schlögl, Peter Andorfer',
     'subtitle': '',
-    'description': """Entity store of the SOLA project. More Info to come ...""",
+    'description': "Entity store of the Sunday Observance in Late Antiquity\n(in development)",
     'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
     'production instance': None,
     'purpose_de': '',
