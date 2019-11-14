@@ -195,6 +195,8 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     "relation_type__vocab_name",
     "relation_type__name_reverse",
     "__text",
+    "annotation",
+    "annotation_set_relation",
 ]
 
 APIS_RELATIONS = {
@@ -356,65 +358,90 @@ APIS_VOCABULARIES = {"exclude": ["userAdded"]}
 
 APIS_ENTITIES = {
     "Place": {
+        "merge": True,
         "search": ["name"],
         "table_fields": ["name"],
         "additional_cols": ["lat", "lng", "part_of"],
         "list_filters": [
-            ("name", {"method": "wildcard_filter", "label": "Name"}),
-            ("status", {"method": "wildcard_filter", "label": "Status"}),
-            ("collection", {"label": "Collection"}),
+            {"name": {"method": "name_label_filter"}},
+            {"collection": {"label": "Collection"}},
+            {"kind": {"label": "Kind of Place"}},
+            "related_entity_name",
+            "related_relationtype_name",
+            "lat",
+            "lng",
         ],
     },
     "Person": {
         "merge": True,
         "search": ["name", "first_name"],
         "form_order": ["first_name", "name"],
-        "table_fields": ["name", "first_name", "start_date", "end_date"],
-        # "additional_cols": ["profession", "gender"], # TODO __sresch__ remove
-        "additional_cols": ["gender"],
+        "table_fields": ["name", "first_name", "start_date_written", "end_date_written"],
+        "additional_cols": ["id", "profession", "gender"],
         "list_filters": [
-            ("name", {"method": "name_label_filter", "label": "Name complete"}),
-            ("first_name", {"method": "wildcard_filter", "label": "Firstname"}),
-            ("gender", {"label": "Gender"}),
-            ("start_date", {"label": "Date of Birth"}),
-            ("end_date", {"label": "Date of Death"}),
-            # ("profession", {"label": "Profession"}), # TODO __sresch__ remove
-            ("collection", {"label": "Collection"}),
+            "name",
+            {"gender": {"label": "Gender"}},
+            {"start_date": {"label": "Date of Birth"}},
+            {"end_date": {"label": "Date of Death"}},
+            {"profession": {"label": "Profession"}},
+            {"title": {"label": "Title"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
         ],
         "api_exclude": [],
     },
     "Institution": {
+        "merge": True,
         "search": ["name"],
+        "additional_cols": ["id", "kind", ],
         "list_filters": [
-            ("name", {"method": "wildcard_filter", "label": "Name"}),
-            ("start_date", {"label": "Date of foundation"}),
-            ("end_date", {"label": "Date of termination"}),
-            ("collection", {"label": "Collection"}),
+            {"name": {"label": "Name or label of institution"}},
+            {"kind": {"label": "Kind of Institution"}},
+            {"start_date": {"label": "Date of foundation"}},
+            {"end_date": {"label": "Date of termination"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
         ],
     },
-    "Work": {
+    "Passage": {
+        "merge": True,
         "search": ["name"],
-        "list_filters": [("name", {"method": "wildcard_filter", "label": "Name"})],
+        "additional_cols": ["id", "kind", ],
+        "list_filters": [
+            {"name": {"label": "Name of Passage"}},
+            {"kind": {"label": "Kind of Passage"}},
+            {"start_date": {"label": "Date of creation"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
     },
-    'Passage': {
-        'search': ['name'],
-        'list_filters': [
-            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
-        ]
+    "Publication": {
+        "merge": True,
+        "search": ["name"],
+        "additional_cols": ["id", "kind", ],
+        "list_filters": [
+            "name"
+        ],
     },
-    'Publication': {
-        'search': ['name'],
-        'list_filters': [
-            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
-        ]
-    },
-    'Event': {
-        'search': ['name'],
-        'list_filters': [
-            ('name', {'method': 'wildcard_filter', 'label': 'Name'})
-        ]
+    "Event": {
+        "merge": True,
+        "search": ["name"],
+        "additional_cols": ["id", ],
+        "list_filters": [
+            {"name": {"label": "Name of event"}},
+            {"kind": {"label": "Kind of Event"}},
+            {"start_date": {"label": "Date of beginning"}},
+            {"end_date": {"label": "Date of end"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
+        ],
     },
 }
+
 
 
 APIS_LIST_VIEWS_ALLOWED = False
