@@ -99,6 +99,13 @@ djangorestframework-filters = "*"
 django-url-filter = "*"
 convertdate = "*"
 spacy = "*"
+coreapi = "*"
+django-rest-swagger = "*"
+drf-yasg = {extras = ["validation"],version = "*"}
+packaging = "*"
+django-haystack = "*"
+whoosh = "*"
+django-leaflet = "*"
 
 [requires]
 python_version = "3.6"
