@@ -37,8 +37,6 @@ deploy:
   only:
     refs:
       - master
-  tags:
-    - python
   stage: deploy
   trigger: acdh-oeaw/apis/apis-docker
   variables:
