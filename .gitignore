@@ -14,8 +14,8 @@ __pycache__/
 /apis_core
 
 # ignore all within all migrations folders except for __init__.py
-**/migrations/*
-!migrations/__init__.py
+#**/migrations/*
+#!migrations/__init__.py
 
 /staticfiles
 
