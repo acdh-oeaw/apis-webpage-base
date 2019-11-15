@@ -399,11 +399,15 @@ APIS_ENTITIES = {
         "merge": True,
         "search": ["name"],
         "table_fields": ["name"],
-        "additional_cols": ["lat", "lng", "part_of", "id"],
+        "additional_cols": ["lat", "lng", "part_of"],
         "list_filters": [
-            ("name", {"method": "wildcard_filter", "label": "Name"}),
-            ("status", {"method": "wildcard_filter", "label": "Status"}),
-            ("collection", {"label": "Collection"}),
+            {"name": {"method": "name_label_filter"}},
+            {"collection": {"label": "Collection"}},
+            {"kind": {"label": "Kind of Place"}},
+            "related_entity_name",
+            "related_relationtype_name",
+            "lat",
+            "lng",
         ],
     },
     "Person": {
@@ -413,13 +417,15 @@ APIS_ENTITIES = {
         "table_fields": ["name", "first_name", "start_date_written", "end_date_written"],
         "additional_cols": ["id", "profession", "gender"],
         "list_filters": [
-            ("name", {"method": "name_label_filter", "label": "Name complete"}),
-            ("first_name", {"method": "wildcard_filter", "label": "Firstname"}),
-            ("gender", {"label": "Gender"}),
-            ("start_date", {"label": "Date of Birth"}),
-            ("end_date", {"label": "Date of Death"}),
-            ("profession", {"label": "Profession"}),
-            ("collection", {"label": "Collection"}),
+            "name",
+            {"gender": {"label": "Gender"}},
+            {"start_date": {"label": "Date of Birth"}},
+            {"end_date": {"label": "Date of Death"}},
+            {"profession": {"label": "Profession"}},
+            {"title": {"label": "Title"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
         ],
         "api_exclude": [],
     },
@@ -428,11 +434,13 @@ APIS_ENTITIES = {
         "search": ["name"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
-            ("name", {"method": "wildcard_filter", "label": "Name"}),
-            ("start_date", {"label": "Date of foundation"}),
-            ("end_date", {"label": "Date of termination"}),
-            ("kind", {"label": "Type of the Institution"}),
-            ("collection", {"label": "Collection"}),
+            {"name": {"label": "Name or label of institution"}},
+            {"kind": {"label": "Kind of Institution"}},
+            {"start_date": {"label": "Date of foundation"}},
+            {"end_date": {"label": "Date of termination"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
         ],
     },
     "Work": {
@@ -440,9 +448,12 @@ APIS_ENTITIES = {
         "search": ["name"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
-            ("name", {"method": "wildcard_filter", "label": "Name"}),
-            ("kind", {"label": "Type of Work"}),
-            ("collection", {"label": "Collection"})
+            {"name": {"label": "Name of work"}},
+            {"kind": {"label": "Kind of Work"}},
+            {"start_date": {"label": "Date of creation"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
         ],
     },
     "Event": {
@@ -450,12 +461,17 @@ APIS_ENTITIES = {
         "search": ["name"],
         "additional_cols": ["id", ],
         "list_filters": [
-            ("name", {"method": "wildcard_filter", "label": "Name"}),
-            ("kind", {"label": "Type of Event"}),
-            ("collection", {"label": "Collection"}),
+            {"name": {"label": "Name of event"}},
+            {"kind": {"label": "Kind of Event"}},
+            {"start_date": {"label": "Date of beginning"}},
+            {"end_date": {"label": "Date of end"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
         ],
     },
 }
+
 
 
 APIS_LIST_VIEWS_ALLOWED = False
