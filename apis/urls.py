@@ -25,4 +25,8 @@ else:
 if 'haystack' in settings.INSTALLED_APPS:
     urlpatterns = urlpatterns + [url(r'^search/', include('haystack.urls')), ]
 
+if "apis_bibsonomy" in settings.INSTALLED_APPS:
+    urlpatterns.append(
+        url(r"^bibsonomy/", include("apis_bibsonomy.urls", namespace="bibsonomy"))
+    )
 handler404 = 'webpage.views.handler404'
