@@ -25,6 +25,9 @@ else:
 if 'haystack' in settings.INSTALLED_APPS:
     urlpatterns = urlpatterns + [url(r'^search/', include('haystack.urls')), ]
 
+if 'transkribus' in settings.INSTALLED_APPS:
+    urlpatterns = urlpatterns + [url(r'^transkribus/', include('transkribus.urls')), ]
+
 if "apis_bibsonomy" in settings.INSTALLED_APPS:
     urlpatterns.append(
         url(r"^bibsonomy/", include("apis_bibsonomy.urls", namespace="bibsonomy"))

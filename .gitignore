@@ -10,3 +10,5 @@ __pycache__/
 /Untitled.ipynb
 /apis/settings/server_*
 /apis/settings/local_*
+
+myenv
