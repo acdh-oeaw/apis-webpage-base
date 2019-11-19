@@ -423,7 +423,11 @@ APIS_ENTITIES = {
         "search": ["name"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
-            "name"
+            "name",
+            {"start_date": {"label": "Date of creation"}},
+            {"collection": {"label": "Collection"}},
+            "related_entity_name",
+            "related_relationtype_name",
         ],
     },
     "Event": {
