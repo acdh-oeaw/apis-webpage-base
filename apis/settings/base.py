@@ -95,8 +95,8 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 50,
     "DEFAULT_PERMISSION_CLASSES": (
-        #"rest_framework.permissions.IsAuthenticated",
-        "rest_framework.permissions.DjangoObjectPermissions",
+        "rest_framework.permissions.IsAuthenticated",
+        #"rest_framework.permissions.DjangoObjectPermissions",
         # use IsAuthenticated for every logged in user to have global edit rights
     ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -471,7 +471,6 @@ APIS_ENTITIES = {
         ],
     },
 }
-
 
 
 APIS_LIST_VIEWS_ALLOWED = False
