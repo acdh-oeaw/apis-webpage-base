@@ -6,6 +6,7 @@ test:
   only:
     refs:
       - master
+      - coladay
   tags:
           - python
   stage: test
