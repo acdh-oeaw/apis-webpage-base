@@ -17,41 +17,71 @@ BASE_DIR = os.path.dirname(
     os.path.dirname(os.path.abspath(os.path.join(__file__, "../")))
 )
 
-ACDH_IMPRINT_URL = (
-    "https://shared.acdh.oeaw.ac.at/acdh-common-assets/api/imprint.php?serviceID="
-)
+SHARED_URL = "https://shared.acdh.oeaw.ac.at/"
+
+ACDH_IMPRINT_URL = "https://shared.acdh.oeaw.ac.at/acdh-common-assets/api/imprint.php?serviceID="
+
+PROJECT_NAME = "apis"
+PROJECT_SHARED = "https://shared.acdh.oeaw.ac.at/apis/"
+PROJECT_DEFAULT_MD = {
+    'title': 'TITLE',
+    'author': 'Matthias Schlögl, Peter Andorfer',
+    'subtitle': 'SUBTITLE',
+    'description': """This is a default metadata file. To change this, provide\
+    provide a following file {PROJECT_SHARED}/{PROJECT_NAME}/metadata.json""",
+    'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
+    'production instance': None,
+    'purpose_de': '',
+    'purpose_en': """""",
+    'version': ['apis_core', 'charts', 'django'],
+    'matomo_id': '',
+    'matomo_url': '',
+    'imprint': '/imprint',
+    'social_media': [
+        ('fab fa-twitter', 'https://twitter.com/ACDH_OeAW'),
+        ('fab fa-youtube', 'https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w'),
+    ],
+    'social_media': [
+        ('fab fa-twitter fa-2x', 'https://twitter.com/ACDH_OeAW'),
+        ('fab fa-youtube fa-2x', 'https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w'),
+    ],
+    'app_type': 'database',
+}
 
 # Application definition
 
 INSTALLED_APPS = [
-    'dal',
-    'dal_select2',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'reversion',
-    'reversion_compare',
-    'crispy_forms',
-    'django_filters',
-    'django_tables2',
-    'rest_framework',
-    'webpage',
-    'browsing',
-    'stats',
-    'django_extensions',
-    'apis_core.apis_entities',
-    'apis_core.apis_metainfo',
-    'apis_core.apis_relations',
-    'apis_core.apis_vocabularies',
-    'apis_core.apis_labels',
-    'apis_core.apis_vis',
-    'rest_framework.authtoken',
-    'guardian',
-    'charts',
-    'gm2m',
+    "dal",
+    "dal_select2",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "reversion",
+    "reversion_compare",
+    "crispy_forms",
+    "django_filters",
+    "django_tables2",
+    "rest_framework",
+    "webpage",
+    "browsing",
+    "stats",
+    "django_extensions",
+    "apis_core.apis_entities",
+    "apis_core.apis_metainfo",
+    "apis_core.apis_relations",
+    "apis_core.apis_vocabularies",
+    "apis_core.apis_labels",
+    "apis_core.apis_vis",
+    "rest_framework.authtoken",
+    "rest_framework_swagger",
+    "drf_yasg",
+    "guardian",
+    "charts",
+    "gm2m",
+    "infos",
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -71,6 +101,10 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.TokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+       'url_filter.integrations.drf.DjangoFilterBackend',
     ),
 }
 
@@ -107,6 +141,11 @@ TEMPLATES = [
                 "webpage.webpage_content_processors.installed_apps",
                 "webpage.webpage_content_processors.is_dev_version",
                 "webpage.webpage_content_processors.get_db_name",
+                "webpage.webpage_content_processors.title_img",
+                "webpage.webpage_content_processors.logo_img",
+                "webpage.webpage_content_processors.custom_css",
+                "webpage.webpage_content_processors.shared_url",
+                "webpage.webpage_content_processors.apis_app_name",
                 "apis_core.context_processors.custom_context_processors.add_entities",
                 "apis_core.context_processors.custom_context_processors.add_relations",
                 "apis_core.context_processors.custom_context_processors.add_apis_settings",
@@ -130,6 +169,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 APIS_BASE_URI = "TO CHANGE"
+
+APIS_MIN_CHAR = 0
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -449,6 +490,7 @@ APIS_ENTITIES = {
 
 APIS_LIST_VIEWS_ALLOWED = False
 APIS_DETAIL_VIEWS_ALLOWED = False
+MAX_AGE = 60*60
 
 APIS_LIST_VIEW_TEMPLATE = "browsing/generic_list.html"
 APIS_DELETE_VIEW_TEMPLATE = "webpage/confirm_delete.html"

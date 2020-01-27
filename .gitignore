@@ -8,14 +8,11 @@ __pycache__/
 /apis/settings/server.py
 .ipynb_checkpoints
 /Untitled.ipynb
+/apis/settings/server_*
+/apis/settings/local_*
 
 # sym links
 /apis_bibsonomy
 /apis_core
-
-# ignore all within all migrations folders except for __init__.py
-#**/migrations/*
-#!migrations/__init__.py
-
 /staticfiles
 

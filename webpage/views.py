@@ -13,8 +13,9 @@ from django.shortcuts import render, render_to_response
 from django.template import loader
 from django.views.generic import TemplateView
 
-from .forms import form_user_login
-from .metadata import PROJECT_METADATA as PM
+from . forms import form_user_login
+from . utils import PROJECT_METADATA as PM
+from . utils import PROJECT_TITLE_IMG, PROJECT_LOGO
 
 
 def get_imprint_url():
@@ -89,7 +90,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return render_to_response("webpage/user_logout.html")
+    return render(request, "webpage/user_logout.html")
 
 
 def handler404(request, exception):
@@ -122,12 +123,21 @@ def project_info(request):
     else:
         del info_dict["matomo_id"]
         del info_dict["matomo_url"]
+    info_dict["title_img"] = PROJECT_TITLE_IMG
+    info_dict["project_logo"] = PROJECT_LOGO
     info_dict["base_tech"] = "django"
     info_dict["framework"] = "apis"
     info_dict["version webpage"] = "{}/commit/{}".format(
         info_dict["github"],
-        subprocess.check_output(["git", "describe", "--always"], cwd=settings.BASE_DIR).strip().decode("utf8"),
+        subprocess.check_output(
+            ["git", "describe", "--always"], cwd=settings.BASE_DIR
+        ).strip().decode("utf8"),
     )
+    rest_settings = settings.REST_FRAMEWORK.get("DEFAULT_PERMISSION_CLASSES", [])
+    if "ReadOnly" in " ".join(rest_settings):
+        info_dict["public"] = "public"
+    else:
+        info_dict["public"] = "restricted"
     vers = []
     for v in info_dict['version']:
         res2 = dict()
