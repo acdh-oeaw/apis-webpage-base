@@ -1,7 +1,6 @@
 jmespath==0.9.4
 dj-database-url
 acdh-django-charts==0.5.3
-apis-core>=0.9.23
 backcall==0.1.0
 bleach==3.0.2
 calmjs==3.3.1
