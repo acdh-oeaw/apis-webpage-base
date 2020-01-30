@@ -80,7 +80,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "guardian",
     "charts",
-    "gm2m",
+    # "gm2m",
     "infos",
 ]
 
