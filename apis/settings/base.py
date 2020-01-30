@@ -168,9 +168,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-APIS_BASE_URI = "TO CHANGE"
+APIS_BASE_URI = "https://sola.acdh-dev.oeaw.ac.at/apis/api/entity/"
 
-APIS_MIN_CHAR = 0
+APIS_MIN_CHAR = 3
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
