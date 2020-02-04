@@ -81,6 +81,7 @@ INSTALLED_APPS = [
     "guardian",
     "charts",
     "infos",
+    "gm2m"
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -280,15 +281,25 @@ APIS_RELATIONS = {
         ],
         "list_filters": [("relation_type",), ("related_person",), ("related_event",)],
     },
-    "PersonWork": {
-        "labels": ["related_person", "related_work", "relation_type"],
+    "PersonPassage": {
+        "labels": ["related_person", "related_passage", "relation_type"],
         "search": [
             "relation_type__name",
             "related_person__name",
             "related_person__first_name",
-            "related_work__name",
+            "related_passage__name",
         ],
-        "list_filters": [("relation_type",), ("related_person",), ("related_work",)],
+        "list_filters": [("relation_type",), ("related_person",), ("related_passage",)],
+    },
+    "PersonPublication": {
+        "labels": ["related_person", "related_publication", "relation_type"],
+        "search": [
+            "relation_type__name",
+            "related_person__name",
+            "related_person__first_name",
+            "related_publication__name",
+        ],
+        "list_filters": [("relation_type",), ("related_person",), ("related_publication",)],
     },
     "PersonPerson": {
         "labels": ["related_personA", "related_personB", "relation_type"],
@@ -318,17 +329,30 @@ APIS_RELATIONS = {
             ("related_place",),
         ],
     },
-    "InstitutionWork": {
-        "labels": ["related_institution", "related_work", "relation_type"],
+    "InstitutionPassage": {
+        "labels": ["related_institution", "related_passage", "relation_type"],
         "search": [
             "relation_type__name",
             "related_institution__name",
-            "related_work__name",
+            "related_passage__name",
         ],
         "list_filters": [
             ("relation_type",),
             ("related_institution",),
-            ("related_work",),
+            ("related_passage",),
+        ],
+    },
+    "InstitutionPublication": {
+        "labels": ["related_institution", "related_publication", "relation_type"],
+        "search": [
+            "relation_type__name",
+            "related_institution__name",
+            "related_publication__name",
+        ],
+        "list_filters": [
+            ("relation_type",),
+            ("related_institution",),
+            ("related_publication",),
         ],
     },
     "InstitutionEvent": {
@@ -357,10 +381,15 @@ APIS_RELATIONS = {
             ("related_institutionB",),
         ],
     },
-    "PlaceWork": {
-        "labels": ["related_work", "related_place", "relation_type"],
-        "search": ["relation_type__name", "related_place__name", "related_work__name"],
-        "list_filters": [("relation_type",), ("related_place",), ("related_work",)],
+    "PlacePassage": {
+        "labels": ["related_passage", "related_place", "relation_type"],
+        "search": ["relation_type__name", "related_place__name", "related_passage__name"],
+        "list_filters": [("relation_type",), ("related_place",), ("related_passage",)],
+    },
+    "PlacePublication": {
+        "labels": ["related_publication", "related_place", "relation_type"],
+        "search": ["relation_type__name", "related_place__name", "related_publication__name"],
+        "list_filters": [("relation_type",), ("related_place",), ("related_publication",)],
     },
     "PlaceEvent": {
         "labels": ["related_event", "related_place", "relation_type"],
@@ -376,10 +405,15 @@ APIS_RELATIONS = {
         ],
         "list_filters": [("relation_type",), ("related_placeA",), ("related_placeB",)],
     },
-    "EventWork": {
-        "labels": ["related_event", "related_work", "relation_type"],
-        "search": ["relation_type__name", "related_event__name", "related_work__name"],
-        "list_filters": [("relation_type",), ("related_event",), ("related_work",)],
+    "EventPassage": {
+        "labels": ["related_event", "related_passage", "relation_type"],
+        "search": ["relation_type__name", "related_event__name", "related_passage__name"],
+        "list_filters": [("relation_type",), ("related_event",), ("related_passage",)],
+    },
+    "EventPublication": {
+        "labels": ["related_event", "related_publication", "relation_type"],
+        "search": ["relation_type__name", "related_event__name", "related_publication__name"],
+        "list_filters": [("relation_type",), ("related_event",), ("related_publication",)],
     },
     "EventEvent": {
         "labels": ["related_eventA", "related_eventB", "relation_type"],
@@ -390,10 +424,20 @@ APIS_RELATIONS = {
         ],
         "list_filters": [("relation_type",), ("related_eventA",), ("related_eventB",)],
     },
-    "WorkWork": {
-        "labels": ["related_workA", "related_workB", "relation_type"],
-        "search": ["relation_type__name", "related_workA__name", "related_workB__name"],
-        "list_filters": [("relation_type",), ("related_workA",), ("related_workB",)],
+    "PassagePublication": {
+        "labels": ["related_passage", "related_publication", "relation_type"],
+        "search": ["relation_type__name", "related_passage__name", "related_publication__name"],
+        "list_filters": [("relation_type",), ("related_passage",), ("related_publication",)],
+    },
+    "PassagePassage": {
+        "labels": ["related_passageA", "related_passageB", "relation_type"],
+        "search": ["relation_type__name", "related_passageA__name", "related_passageB__name"],
+        "list_filters": [("relation_type",), ("related_passageA",), ("related_passageB",)],
+    },
+    "PublicationPublication": {
+        "labels": ["related_publicationA", "related_publicationB", "relation_type"],
+        "search": ["relation_type__name", "related_publicationA__name", "related_publicationB__name"],
+        "list_filters": [("relation_type",), ("related_publicationA",), ("related_publicationB",)],
     },
 }
 
