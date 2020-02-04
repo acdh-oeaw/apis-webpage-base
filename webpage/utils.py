@@ -9,7 +9,7 @@ PROJECT_MD_URL = "{}/metadata.json".format(PROJECT_STATIC_URL)
 try:
     PROJECT_TITLE_IMG = settings.CUSTOM_TITLE_IMG
 except AttributeError:
-    PROJECT_TITLE_IMG = "{}/project-title-img.jpg".format(PROJECT_STATIC_URL)
+    PROJECT_TITLE_IMG = "{}/webpage/img/sola_banner.jpg".format(PROJECT_STATIC_URL)
 
 try:
     PROJECT_LOGO = settings.CUSTOM_LOGO_IMG

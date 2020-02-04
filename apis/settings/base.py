@@ -68,13 +68,14 @@ INSTALLED_APPS = [
     "rest_framework",
     "webpage",
     "browsing",
+    "stats",
     "django_extensions",
     "apis_core.apis_entities",
     "apis_core.apis_metainfo",
     "apis_core.apis_relations",
     "apis_core.apis_vocabularies",
     "apis_core.apis_labels",
-    # 'apis_core.apis_vis',
+    "apis_core.apis_vis",
     "rest_framework.authtoken",
     "rest_framework_swagger",
     "drf_yasg",
@@ -171,7 +172,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-APIS_BASE_URI = "TO CHANGE"
+APIS_BASE_URI = "https://sola.acdh-dev.oeaw.ac.at/apis/api/entity/"
 
 APIS_MIN_CHAR = 3
 
@@ -499,6 +500,7 @@ APIS_ENTITIES = {
             {"name": {"label": "Name of Passage"}},
             {"kind": {"label": "Kind of Passage"}},
             {"start_date": {"label": "Date of creation"}},
+            {"end_date": {"label": "Date of termination"}},
             {"collection": {"label": "Collection"}},
             "related_entity_name",
             "related_relationtype_name",
@@ -509,7 +511,8 @@ APIS_ENTITIES = {
         "search": ["name"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
-            "name",
+            {"name": {"label": "Name of publication"}},
+            {"kind": {"label": "Kind of publication"}},
             {"start_date": {"label": "Date of creation"}},
             {"collection": {"label": "Collection"}},
             "related_entity_name",
