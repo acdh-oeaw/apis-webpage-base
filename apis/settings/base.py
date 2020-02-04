@@ -82,7 +82,7 @@ INSTALLED_APPS = [
     "guardian",
     "charts",
     "infos",
-    "gm2m"
+    # "gm2m"
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
