@@ -12,7 +12,6 @@ if 'theme' in settings.INSTALLED_APPS:
         url(r'^info/', include('infos.urls', namespace='info')),
         url(r'^', include('theme.urls', namespace='theme')),
         url(r'^webpage/', include('webpage.urls', namespace='webpage')),
-	# TODO __sresch__ : check this url(r'^bibsonomy/', include('apis_bibsonomy.urls', namespace="bibsonomy")),
     ]
 else:
     urlpatterns = [
@@ -21,8 +20,8 @@ else:
         url(r'^admin/', admin.site.urls),
         url(r'^info/', include('infos.urls', namespace='info')),
         url(r'^', include('webpage.urls', namespace='webpage')),
-	# TODO __sresch__ : check thisurl(r'^bibsonomy/', include('apis_bibsonomy.urls', namespace="bibsonomy")),
     ]
+# TODO __sresch__ : check thisurl(r'^bibsonomy/', include('apis_bibsonomy.urls', namespace="bibsonomy")),
 
 if 'haystack' in settings.INSTALLED_APPS:
     urlpatterns = urlpatterns + [url(r'^search/', include('haystack.urls')), ]
