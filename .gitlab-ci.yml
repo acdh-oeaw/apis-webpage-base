@@ -6,6 +6,7 @@ test:
   only:
     refs:
       - master
+      - coladay
   tags:
           - python
   stage: test
@@ -27,10 +28,10 @@ test:
           - ln -s ../apis-highlighter/apis_highlighter apis_highlighter
           - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-bibsonomy.git /builds/acdh-oeaw/apis/apis-bibsonomy
           - ln -s ../apis-highlighter/apis_bibsonomy apis_bibsonomy
-          - python manage.py makemigrations --settings=apis.settings.settings_test_ci
+            # - python manage.py makemigrations --settings=apis.settings.settings_test_ci
           - python manage.py migrate --settings=apis.settings.settings_test_ci
           - sed -i '18,19 s/^#//' apis/urls.py
-          - python manage.py makemigrations --settings=apis.settings.settings_test_ci
+            # - python manage.py makemigrations --settings=apis.settings.settings_test_ci
           - python manage.py migrate --settings=apis.settings.settings_test_ci
           - python manage.py test --settings=apis.settings.settings_test_ci
 deploy:

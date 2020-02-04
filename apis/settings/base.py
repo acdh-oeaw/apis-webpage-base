@@ -404,7 +404,7 @@ APIS_ENTITIES = {
         "merge": True,
         "search": ["name"],
         "table_fields": ["name"],
-        "additional_cols": ["lat", "lng", "part_of"],
+        "additional_cols": ["id", "lat", "lng", "part_of"],
         "list_filters": [
             {"name": {"method": "name_label_filter"}},
             {"collection": {"label": "Collection"}},

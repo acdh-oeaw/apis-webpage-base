@@ -106,6 +106,7 @@ packaging = "*"
 django-haystack = "*"
 whoosh = "*"
 django-leaflet = "*"
+beautifulsoup4 = "*"
 
 [requires]
 python_version = "3.6"
