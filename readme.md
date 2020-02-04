@@ -1,20 +1,18 @@
 # About
 [APIS](https://acdh-oeaw.github.io/apis-core/) is a [Django](https://www.djangoproject.com/) based webapplication developed by the [Austrian Centre for Digital Humanities](https://acdh.oeaw.ac.at/). We use it to store named entities and relations between them in DH projects.
 
-
-
 This is a base project for [APIS](https://acdh-oeaw.github.io/apis-core/) installations. We use different branches to adapt the base project to the needs of the various projects
 
 # Basic Installation
 * Clone this repository and checkout the branch you intend to use
-* Create a virtualenv and activate it: 
+* Create a virtualenv and activate it:
 
     ```bash
     virtualenv -p python3 myenv
     source myenv/bin/activate
     ```
 
-* Install the requirements: 
+* Install the requirements:
 
     ```bash
     pip install -r requirements.txt
@@ -33,7 +31,7 @@ This is a base project for [APIS](https://acdh-oeaw.github.io/apis-core/) instal
     ```
     uncomment line #8 and save the file
 * Migrate again:
-    
+
     ```bash
     python manage.py makemigrations browsing
     python manage.py migrate
@@ -82,7 +80,12 @@ For security and performance reasons you dont want to use the development server
 We have developed (and still are developing) some additional packages to extend the functionalities of APIS.
 
 ## Highlighter
-This package is used to provide annotation functionalities for texts stored in APIS. If installed and 
+This package is used to provide annotation functionalities for texts stored in APIS. If installed and
+
+# Customization
+Basic metadata of the project can be set in `apis.settings.base` by adapting `PROJECT_DEFAULT_MD`. The prefered way though is to provide a remote `metadata.json`.
+* A proper project description should be stored in `infos.models.AboutTheProject`
+* Info about the project's team members can be stored in `infos.models.TeamMember`.
 
 # References
 

@@ -1,0 +1,46 @@
+stages:
+  - test
+  - deploy
+image: python:3.6
+test:
+  only:
+    refs:
+      - master
+  tags:
+          - python
+  stage: test
+  services:
+      - mysql:5.7
+  variables:
+        # Configure mysql environment variables (https://hub.docker.com/_/mysql/)
+      MYSQL_DATABASE: "testdb_apis"
+      MYSQL_ROOT_PASSWORD: "sggdjagg"
+      GIT_STRATEGY: clone
+  script:
+          - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@mysql:3306/$MYSQL_DATABASE
+          - python -m pip install -r requirements.txt
+          - python -m pip install mysqlclient
+          - sed -i '18,19 s/^/#/' apis/urls.py
+          - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-core.git /builds/acdh-oeaw/apis/apis-core
+          - ln -s ../apis-core/apis_core apis_core
+          - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-highlighter.git /builds/acdh-oeaw/apis/apis-highlighter
+          - ln -s ../apis-highlighter/apis_highlighter apis_highlighter
+          - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-bibsonomy.git /builds/acdh-oeaw/apis/apis-bibsonomy
+          - ln -s ../apis-highlighter/apis_bibsonomy apis_bibsonomy
+          - python manage.py makemigrations --settings=apis.settings.settings_test_ci
+          - python manage.py migrate --settings=apis.settings.settings_test_ci
+          - sed -i '18,19 s/^#//' apis/urls.py
+          - python manage.py makemigrations --settings=apis.settings.settings_test_ci
+          - python manage.py migrate --settings=apis.settings.settings_test_ci
+          - python manage.py test --settings=apis.settings.settings_test_ci
+deploy:
+  only:
+    refs:
+      - master
+  stage: deploy
+  trigger: acdh-oeaw/apis/apis-docker
+  variables:
+      APIS_TRIGGERD_BY: 'apis-webpage-base'
+      APIS_VERSION: '0.9'
+
+
