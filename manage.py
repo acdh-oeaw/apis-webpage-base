@@ -19,4 +19,39 @@ if __name__ == "__main__":
                 "forget to activate a virtual environment?"
             )
         raise
+
+
+    # TODO : Check at some time if the bug in dal_select2 has been fixed, and if so, remove this function here
+    def work_around_dal_select2_bug():
+        """
+        Due to a bug in dal_select2, this workaround function here goes into the offending file and replaces the
+        relevant code segment with a work-around segment.
+
+        This function ensures that this replacement is done each time django is run and also modifies only the file
+        which is loaded via the respective library within the virtual environment of the current python interpreter.
+        """
+
+        import dal_select2
+
+        file_to_fix = dal_select2.__file__.replace("/__init__.py", "/static/autocomplete_light/select2.js")
+
+        with open(file_to_fix, "r") as f:
+            lines = f.readlines()
+
+        for i, line in enumerate(lines):
+
+            if \
+                    line == "                processResults: function (data, page) {\n" and \
+                    lines[i+1] == "                    if (element.attr('data-tags')) {\n" and \
+                    lines[i+2] == "                        $.each(data.results, function(index, value) {\n" and \
+                    lines[i+3] == "                            value.id = value.text;\n" :
+
+                lines[i+3] = "                            value.id = value.id;\n"
+
+        with open(file_to_fix, "w") as f:
+            f.write("".join(lines))
+
+    work_around_dal_select2_bug()
+
+
     execute_from_command_line(sys.argv)
