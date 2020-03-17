@@ -93,13 +93,16 @@ CORS_ALLOW_METHODS = ("GET", "OPTIONS")
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
 
+
+
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 50,
     "DEFAULT_PERMISSION_CLASSES": (
         #"rest_framework.permissions.DjangoModelPermissions"
         #"rest_framework.permissions.IsAuthenticated",
-        "rest_framework.permissions.DjangoObjectPermissions",
+        # "rest_framework.permissions.DjangoObjectPermissions",
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
         # use IsAuthenticated for every logged in user to have global edit rights
     ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -208,6 +211,10 @@ APIS_CETEICEAN_CSS = "https://teic.github.io/CETEIcean/css/CETEIcean.css"
 APIS_CETEICEAN_JS = "https://teic.github.io/CETEIcean/js/CETEI.js"
 
 APIS_NEXT_PREV = True
+
+# TODO __sresch__ : change this, once the bibsonomy bug is fixed
+APIS_BIBSONOMY_FIELDS = ["name", "start_date_written"]
+# APIS_BIBSONOMY_TEXTS = ["Inhalt (DE)"]
 
 APIS_ALTERNATE_NAMES = [
     "Taufname",
