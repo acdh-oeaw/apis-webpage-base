@@ -1,8 +1,10 @@
 from django.conf.urls import url, include, handler404
 from django.contrib import admin
 from django.conf import settings
+from django.urls import path
 from rest_framework import routers
 
+from apis_core.apis_entities.api_views import GetEntityGeneric
 
 if 'theme' in settings.INSTALLED_APPS:
     urlpatterns = [
@@ -12,6 +14,7 @@ if 'theme' in settings.INSTALLED_APPS:
         url(r'^info/', include('infos.urls', namespace='info')),
         url(r'^', include('theme.urls', namespace='theme')),
         url(r'^webpage/', include('webpage.urls', namespace='webpage')),
+        path(r'entity/<int:pk>/', GetEntityGeneric.as_view(), name="GetEntityGenericRoot"),
     ]
 else:
     urlpatterns = [
@@ -20,6 +23,7 @@ else:
         url(r'^admin/', admin.site.urls),
         url(r'^info/', include('infos.urls', namespace='info')),
         url(r'^', include('webpage.urls', namespace='webpage')),
+        path(r'entity/<int:pk>/', GetEntityGeneric.as_view(), name="GetEntityGenericRoot"),
     ]
 
 if 'haystack' in settings.INSTALLED_APPS:
