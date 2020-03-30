@@ -212,9 +212,50 @@ APIS_CETEICEAN_JS = "https://teic.github.io/CETEIcean/js/CETEI.js"
 
 APIS_NEXT_PREV = True
 
-# TODO __sresch__ : change this, once the bibsonomy bug is fixed
-APIS_BIBSONOMY_FIELDS = ["name", "start_date_written"]
-# APIS_BIBSONOMY_TEXTS = ["Inhalt (DE)"]
+APIS_BIBSONOMY_FIELDS = [
+
+    # mutual fields between different entities
+    "name_english",
+    "migne_number",
+
+    # TempEntityClass fields
+    "name",
+    "start_date_written",
+    "end_date_written",
+
+    # Person fields
+    "first_name",
+
+    # Place fields
+    "kind",
+
+    # Publication fields
+    "clavis_number",
+]
+
+APIS_BIBSONOMY_TEXTS = [
+
+    # Person texts
+    "Biographie (EN)",
+    "Biographie (DE)",
+
+    # Institution texts
+    "Beschreibung (EN)",
+    "Beschreibung (DE)",
+
+    # Passage texts
+    "Inhalt (ist zu übertragen zu publications)",
+    "Übersetzung (EN)",
+    "Übersetzung (DE)",
+    "Originaltext / Zitat",
+    "Auswertung (EN)",
+    "Auswertung (DE)",
+
+    # Publication texts
+    "Inhalt (EN)",
+    "Inhalt (DE)",
+]
+
 
 APIS_ALTERNATE_NAMES = [
     "Taufname",
