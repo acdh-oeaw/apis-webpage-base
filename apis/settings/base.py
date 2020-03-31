@@ -400,6 +400,7 @@ APIS_ENTITIES = {
     "Place": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "kind", "lat", "lng", "status", "collection"],
         "table_fields": ["name"],
         "additional_cols": ["id", "lat", "lng", "part_of"],
         "list_filters": [
@@ -415,7 +416,7 @@ APIS_ENTITIES = {
     "Person": {
         "merge": True,
         "search": ["name", "first_name"],
-        "form_order": ["first_name", "name"],
+        "form_order": ["first_name", "name", "start_date_written", "end_date_written", "profession", "status", "collection"],
         "table_fields": ["name", "first_name", "start_date_written", "end_date_written"],
         "additional_cols": ["id", "profession", "gender"],
         "list_filters": [
@@ -433,6 +434,7 @@ APIS_ENTITIES = {
     "Institution": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "start_date_written", "end_date_written", "kind", "status", "collection"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
             {"name": {"label": "Name or label of institution"}},
