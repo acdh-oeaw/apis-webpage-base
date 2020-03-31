@@ -214,6 +214,9 @@ APIS_NEXT_PREV = True
 
 APIS_BIBSONOMY_FIELDS = [
 
+    # so that the whole entity can be used as well
+    "self",
+
     # mutual fields between different entities
     "name_english",
     "migne_number",
