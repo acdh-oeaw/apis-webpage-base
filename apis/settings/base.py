@@ -99,7 +99,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 50,
     "DEFAULT_PERMISSION_CLASSES": (
-        #"rest_framework.permissions.DjangoModelPermissions"
+        #"rest_framework.permissions.DjangoModelPermissions",
         #"rest_framework.permissions.IsAuthenticated",
         # "rest_framework.permissions.DjangoObjectPermissions",
         "rest_framework.permissions.IsAuthenticatedOrReadOnly",
@@ -499,6 +499,7 @@ APIS_ENTITIES = {
     "Place": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "kind", "lat", "lng", "status", "collection"],
         "table_fields": ["name"],
         "additional_cols": ["id", "lat", "lng", "part_of"],
         "list_filters": [
@@ -514,7 +515,7 @@ APIS_ENTITIES = {
     "Person": {
         "merge": True,
         "search": ["name", "first_name"],
-        "form_order": ["first_name", "name"],
+        "form_order": ["first_name", "name", "start_date_written", "end_date_written", "profession", "status", "collection"],
         "table_fields": ["name", "first_name", "start_date_written", "end_date_written"],
         "additional_cols": ["id", "gender"],
         "list_filters": [
@@ -527,11 +528,11 @@ APIS_ENTITIES = {
             "related_entity_name",
             "related_relationtype_name",
         ],
-        "api_exclude": [],
     },
     "Institution": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "start_date_written", "end_date_written", "kind", "status", "collection"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
             {"name": {"label": "Name or label of institution"}},
@@ -586,6 +587,7 @@ APIS_ENTITIES = {
     },
 }
 
+APIS_API_EXCLUDE_SETS = True  # exclude reverse links to entities
 
 APIS_LIST_VIEWS_ALLOWED = False
 APIS_DETAIL_VIEWS_ALLOWED = False
