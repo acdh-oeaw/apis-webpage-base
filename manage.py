@@ -38,10 +38,10 @@ if __name__ == "__main__":
         with open(file_to_fix, "r") as f:
             lines = f.readlines()
 
-        for i, line in enumerate(lines):
+        for i in range(len(lines)):
 
             if \
-                    line == "                processResults: function (data, page) {\n" and \
+                    lines[i] == "                processResults: function (data, page) {\n" and \
                     lines[i+1] == "                    if (element.attr('data-tags')) {\n" and \
                     lines[i+2] == "                        $.each(data.results, function(index, value) {\n" and \
                     lines[i+3] == "                            value.id = value.text;\n" :
