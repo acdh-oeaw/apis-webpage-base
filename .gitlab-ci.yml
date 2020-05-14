@@ -24,6 +24,7 @@ test:
           - python -m pip install mysqlclient
           - sed -i '21,23 s/^/#/' apis/urls.py
           - ls /builds/acdh-oeaw
+          - ls /builds/acdh-oeaw/apis
           - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-core.git /builds/acdh-oeaw/apis/apis-core
           - ln -s ../apis-core/apis_core apis_core
           - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/acdh-oeaw/apis/apis-highlighter.git /builds/acdh-oeaw/apis/apis-highlighter
