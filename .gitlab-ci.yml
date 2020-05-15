@@ -3,6 +3,7 @@ stages:
   - deploy
 image: python:3.6
 test:
+  cache: {}
   only:
     refs:
       - master
