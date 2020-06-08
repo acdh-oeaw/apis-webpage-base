@@ -124,6 +124,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "reversion.middleware.RevisionMiddleware",
+    "crum.CurrentRequestUserMiddleware",
 ]
 
 ROOT_URLCONF = "apis.urls"
@@ -395,6 +396,8 @@ APIS_RELATIONS = {
 }
 
 APIS_VOCABULARIES = {"exclude": ["userAdded"]}
+
+APIS_METAINFO = {"exclude": ["groups_allowed"]}
 
 APIS_ENTITIES = {
     "Place": {
