@@ -132,7 +132,7 @@
                             </li>
                             {% else %}
                             <li class="nav-item dropdown my-2 my-lg-0">
-                                <a class="nav-link" href="{% url 'webpage:user_login' %}">
+                                <a class="nav-link" href="{% url 'webpage:user_login' %}?next={{ request.path|urlencode }}">
                                 <i class="feather-32" data-feather="log-in"></i>
                                 </a>
                             </li>
