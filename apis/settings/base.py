@@ -75,14 +75,13 @@ INSTALLED_APPS = [
     "apis_core.apis_relations",
     "apis_core.apis_vocabularies",
     "apis_core.apis_labels",
-    "apis_core.apis_vis",
+    # 'apis_core.apis_vis',
     "rest_framework.authtoken",
     "rest_framework_swagger",
     "drf_yasg",
     "guardian",
     "charts",
     "infos",
-    # "gm2m"
 ]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -92,8 +91,6 @@ CORS_ALLOW_METHODS = ("GET", "OPTIONS")
 
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
-
-
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
@@ -130,6 +127,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "reversion.middleware.RevisionMiddleware",
+    "crum.CurrentRequestUserMiddleware",
 ]
 
 ROOT_URLCONF = "apis.urls"
@@ -495,10 +493,13 @@ APIS_RELATIONS = {
 
 APIS_VOCABULARIES = {"exclude": ["userAdded"]}
 
+APIS_METAINFO = {"exclude": ["groups_allowed"]}
+
 APIS_ENTITIES = {
     "Place": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "kind", "lat", "lng", "status", "collection"],
         "table_fields": ["name"],
         "additional_cols": ["id", "lat", "lng", "part_of"],
         "list_filters": [
@@ -514,7 +515,7 @@ APIS_ENTITIES = {
     "Person": {
         "merge": True,
         "search": ["name", "first_name"],
-        "form_order": ["first_name", "name"],
+        "form_order": ["first_name", "name", "start_date_written", "end_date_written", "status", "collection"],
         "table_fields": ["name", "first_name", "start_date_written", "end_date_written"],
         "additional_cols": ["id", "gender"],
         "list_filters": [
@@ -527,11 +528,11 @@ APIS_ENTITIES = {
             "related_entity_name",
             "related_relationtype_name",
         ],
-        "api_exclude": [],
     },
     "Institution": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "start_date_written", "end_date_written", "kind", "status", "collection"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
             {"name": {"label": "Name or label of institution"}},
@@ -586,6 +587,7 @@ APIS_ENTITIES = {
     },
 }
 
+APIS_API_EXCLUDE_SETS = True  # exclude reverse links to entities
 
 APIS_LIST_VIEWS_ALLOWED = False
 APIS_DETAIL_VIEWS_ALLOWED = False
