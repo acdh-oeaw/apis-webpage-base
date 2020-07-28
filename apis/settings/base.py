@@ -82,6 +82,7 @@ INSTALLED_APPS = [
     "guardian",
     "charts",
     "infos",
+    "django_summernote",
 ]
 
 USE_X_FORWARDED_HOST = True
@@ -606,3 +607,28 @@ APIS_OSD_JS = (
 APIS_OSD_IMG_PREFIX = (
     "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/images/"
 )
+
+
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '100%',
+        'height': '400',
+
+        # Use proper language setting automatically (default)
+        'lang': None,
+
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'italic']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['view', ['fullscreen']],
+        ],
+    }
+}

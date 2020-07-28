@@ -37,3 +37,8 @@ if "apis_bibsonomy" in settings.INSTALLED_APPS:
         url(r"^bibsonomy/", include("apis_bibsonomy.urls", namespace="bibsonomy"))
     )
 handler404 = 'webpage.views.handler404'
+
+if "django_summernote" in settings.INSTALLED_APPS:
+    urlpatterns.append(
+        path('summernote/', include('django_summernote.urls'))
+    )
