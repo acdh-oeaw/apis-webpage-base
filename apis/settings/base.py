@@ -99,9 +99,9 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 50,
     "DEFAULT_PERMISSION_CLASSES": (
         #"rest_framework.permissions.DjangoModelPermissions"
-        "rest_framework.permissions.IsAuthenticated",
+        # "rest_framework.permissions.IsAuthenticated",
         # "rest_framework.permissions.DjangoObjectPermissions",
-        # "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
         # use IsAuthenticated for every logged in user to have global edit rights
     ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -492,6 +492,36 @@ APIS_RELATIONS = {
         "list_filters": [("relation_type",), ("related_publicationA",), ("related_publicationB",)],
     },
 }
+
+APIS_HIGHLIGHTER_ENTITIES = (
+    'apis_entities.Person',
+    'apis_entities.Institution',
+    'apis_entities.Place',
+    'apis_entities.Event',
+    'apis_entities.Passage',
+    'apis_entities.Publication',
+    'apis_relations.PersonPerson',
+    'apis_relations.PersonPlace',
+    'apis_relations.PersonInstitution',
+    'apis_relations.PersonEvent',
+    'apis_relations.PersonPassage',
+    'apis_relations.PersonPublication',
+    'apis_relations.InstitutionPlace',
+    'apis_relations.InstitutionEvent',
+    'apis_relations.InstitutionPassage',
+    'apis_relations.InstitutionPublication',
+    'apis_relations.InstitutionInstitution',
+    'apis_relations.PlaceEvent',
+    'apis_relations.PlacePassage',
+    'apis_relations.PlacePublication',
+    'apis_relations.PlacePlace',
+    'apis_relations.EventPassage',
+    'apis_relations.EventPublication',
+    'apis_relations.EventEvent',
+    'apis_relations.PassagePublication',
+    'apis_relations.PassagePassage',
+    'apis_relations.PublicationPublication',
+)
 
 APIS_VOCABULARIES = {"exclude": ["userAdded"]}
 
