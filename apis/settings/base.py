@@ -532,12 +532,13 @@ APIS_ENTITIES = {
         "merge": True,
         "search": ["name"],
         "form_order": ["name", "kind", "lat", "lng", "status", "collection"],
-        "table_fields": ["name"],
+        "table_fields": ["name", "assigned_user"],
         "additional_cols": ["id", "lat", "lng", "part_of"],
         "list_filters": [
             {"name": {"method": "name_label_filter"}},
             {"collection": {"label": "Collection"}},
             {"kind": {"label": "Kind of Place"}},
+            "assigned_user",
             "related_entity_name",
             "related_relationtype_name",
             "lat",
@@ -547,9 +548,9 @@ APIS_ENTITIES = {
     "Person": {
         "merge": True,
         "search": ["name", "first_name"],
-        "form_order": ["first_name", "name", "start_date_written", "end_date_written", "status", "collection"],
-        "table_fields": ["name", "first_name", "start_date_written", "end_date_written"],
-        "additional_cols": ["id", "gender"],
+        "form_order": ["first_name", "name", "gender", "start_date_written", "end_date_written", "status", "collection", "assigned_user",],
+        "table_fields": ["name", "assigned_user", "first_name", "start_date_written", "end_date_written",],
+        "additional_cols": ["id", "gender",],
         "list_filters": [
             "name",
             {"gender": {"label": "Gender"}},
@@ -557,6 +558,7 @@ APIS_ENTITIES = {
             {"end_date": {"label": "Date of Death"}},
             {"title": {"label": "Title"}},
             {"collection": {"label": "Collection"}},
+            "assigned_user",
             "related_entity_name",
             "related_relationtype_name",
         ],
@@ -564,7 +566,8 @@ APIS_ENTITIES = {
     "Institution": {
         "merge": True,
         "search": ["name"],
-        "form_order": ["name", "start_date_written", "end_date_written", "kind", "status", "collection"],
+        "form_order": ["name", "name_english", "start_date_written", "end_date_written", "kind", "status", "collection", "assigned_user",],
+        "table_fields": ["name", "assigned_user"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
             {"name": {"label": "Name or label of institution"}},
@@ -572,6 +575,7 @@ APIS_ENTITIES = {
             {"start_date": {"label": "Date of foundation"}},
             {"end_date": {"label": "Date of termination"}},
             {"collection": {"label": "Collection"}},
+            "assigned_user",
             "related_entity_name",
             "related_relationtype_name",
         ],
@@ -579,6 +583,8 @@ APIS_ENTITIES = {
     "Passage": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "name_english", "start_date_written", "end_date_written", "kind", "status", "collection", "assigned_user",],
+        "table_fields": ["name", "assigned_user"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
             {"name": {"label": "Name of Passage"}},
@@ -586,6 +592,7 @@ APIS_ENTITIES = {
             {"start_date": {"label": "Date of creation"}},
             {"end_date": {"label": "Date of termination"}},
             {"collection": {"label": "Collection"}},
+            "assigned_user",
             "related_entity_name",
             "related_relationtype_name",
         ],
@@ -593,12 +600,15 @@ APIS_ENTITIES = {
     "Publication": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "name_english", "start_date_written", "end_date_written", "kind", "status", "collection", "assigned_user",],
+        "table_fields": ["name", "assigned_user"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
             {"name": {"label": "Name of publication"}},
             {"kind": {"label": "Kind of publication"}},
             {"start_date": {"label": "Date of creation"}},
             {"collection": {"label": "Collection"}},
+            "assigned_user",
             "related_entity_name",
             "related_relationtype_name",
         ],
@@ -606,6 +616,8 @@ APIS_ENTITIES = {
     "Event": {
         "merge": True,
         "search": ["name"],
+        "form_order": ["name", "name_english", "start_date_written", "end_date_written", "kind", "status", "collection", "assigned_user",],
+        "table_fields": ["name", "assigned_user"],
         "additional_cols": ["id", ],
         "list_filters": [
             {"name": {"label": "Name of event"}},
@@ -613,6 +625,7 @@ APIS_ENTITIES = {
             {"start_date": {"label": "Date of beginning"}},
             {"end_date": {"label": "Date of end"}},
             {"collection": {"label": "Collection"}},
+            "assigned_user",
             "related_entity_name",
             "related_relationtype_name",
         ],
