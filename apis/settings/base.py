@@ -226,9 +226,6 @@ APIS_BIBSONOMY_FIELDS = [
     "start_date_written",
     "end_date_written",
 
-    # Person fields
-    "first_name",
-
     # Place fields
     "kind",
 
@@ -304,7 +301,6 @@ APIS_RELATIONS = {
         "search": [
             "relation_type__name",
             "related_person__name",
-            "related_person__first_name",
             "related_place__name",
         ],
         "list_filters": [("relation_type",), ("related_person",), ("related_place",)],
@@ -314,7 +310,6 @@ APIS_RELATIONS = {
         "search": [
             "relation_type__name",
             "related_person__name",
-            "related_person__first_name",
             "related_institution__name",
         ],
         "list_filters": [
@@ -328,7 +323,6 @@ APIS_RELATIONS = {
         "search": [
             "relation_type__name",
             "related_person__name",
-            "related_person__first_name",
             "related_event__name",
         ],
         "list_filters": [("relation_type",), ("related_person",), ("related_event",)],
@@ -338,7 +332,6 @@ APIS_RELATIONS = {
         "search": [
             "relation_type__name",
             "related_person__name",
-            "related_person__first_name",
             "related_passage__name",
         ],
         "list_filters": [("relation_type",), ("related_person",), ("related_passage",)],
@@ -348,7 +341,6 @@ APIS_RELATIONS = {
         "search": [
             "relation_type__name",
             "related_person__name",
-            "related_person__first_name",
             "related_publication__name",
         ],
         "list_filters": [("relation_type",), ("related_person",), ("related_publication",)],
@@ -358,9 +350,7 @@ APIS_RELATIONS = {
         "search": [
             "relation_type__name",
             "related_personA__name",
-            "related_personA__first_name",
             "related_personB__name",
-            "related_personB__first_name",
         ],
         "list_filters": [
             ("relation_type",),
@@ -547,9 +537,9 @@ APIS_ENTITIES = {
     },
     "Person": {
         "merge": True,
-        "search": ["name", "first_name"],
-        "form_order": ["first_name", "name", "gender", "start_date_written", "end_date_written", "status", "collection", "assigned_user",],
-        "table_fields": ["name", "assigned_user", "first_name", "start_date_written", "end_date_written",],
+        "search": ["name"],
+        "form_order": ["name", "gender", "start_date_written", "end_date_written", "status", "collection", "assigned_user",],
+        "table_fields": ["name", "assigned_user", "start_date_written", "end_date_written",],
         "additional_cols": ["id", "gender",],
         "list_filters": [
             "name",
@@ -650,7 +640,6 @@ APIS_OSD_JS = (
 APIS_OSD_IMG_PREFIX = (
     "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.0/images/"
 )
-
 
 SUMMERNOTE_CONFIG = {
     'summernote': {
