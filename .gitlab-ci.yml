@@ -22,7 +22,7 @@ test:
           - export DATABASE_URL=mysql://root:$MYSQL_ROOT_PASSWORD@mysql:3306/$MYSQL_DATABASE
           - python -m pip install -r requirements.txt
           - python -m pip install mysqlclient
-          - sed -i '21,23 s/^/#/' apis/urls.py
+          - sed -i '20,22 s/^/#/' apis/urls.py
           - if [ -d "/builds/acdh-oeaw/apis/apis-core" ]; then rm -Rf /builds/acdh-oeaw/apis/apis-core; fi
           - if [ -d "/builds/acdh-oeaw/apis/apis-highlighter" ]; then rm -Rf /builds/acdh-oeaw/apis/apis-highlighter; fi
           - if [ -d "/builds/acdh-oeaw/apis/apis-bibsonomy" ]; then rm -Rf /builds/acdh-oeaw/apis/apis-bibsonomy; fi
@@ -34,7 +34,7 @@ test:
           - ln -s ../apis-highlighter/apis_bibsonomy apis_bibsonomy
             # - python manage.py makemigrations --settings=apis.settings.settings_test_ci
           - python manage.py migrate --settings=apis.settings.settings_test_ci
-          - sed -i '21,23 s/^#//' apis/urls.py
+          - sed -i '20,22 s/^#//' apis/urls.py
             # - python manage.py makemigrations --settings=apis.settings.settings_test_ci
           - python manage.py migrate --settings=apis.settings.settings_test_ci
           - python manage.py test --settings=apis.settings.settings_test_ci

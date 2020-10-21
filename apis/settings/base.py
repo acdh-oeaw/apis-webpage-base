@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from typing import Dict, Any
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(
@@ -78,7 +79,8 @@ INSTALLED_APPS = [
     # 'apis_core.apis_vis',
     "rest_framework.authtoken",
     "rest_framework_swagger",
-    "drf_yasg",
+    #"drf_yasg",
+    "drf_spectacular",
     "guardian",
     "charts",
     "infos",
@@ -90,6 +92,13 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = ("GET", "OPTIONS")
+
+SPECTACULAR_SETTINGS: Dict[str, Any] = {
+'TITLE': 'APIS generic API',
+'DESCRIPTIOPN': 'Provides access to the main APIS data-model endpoints.',
+'LICENSE': {'name': 'MIT License', 'url': 'https://www.mit.edu/~amini/LICENSE.md'},
+'VERSION': '0.13'
+}
 
 
 CRISPY_TEMPLATE_PACK = "bootstrap3"
@@ -110,8 +119,10 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ),
     'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
        'url_filter.integrations.drf.DjangoFilterBackend',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 AUTHENTICATION_BACKENDS = (
