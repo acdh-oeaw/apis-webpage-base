@@ -548,7 +548,7 @@ APIS_ENTITIES = {
     "Person": {
         "merge": True,
         "search": ["name"],
-        "form_order": ["name", "gender", "start_date_written", "end_date_written", "status", "collection", "assigned_user",],
+        "form_order": ["name", "name_english", "gender", "start_date_written", "end_date_written", "status", "collection", "assigned_user",],
         "table_fields": ["name", "assigned_user", "start_date_written", "end_date_written",],
         "additional_cols": ["id", "gender",],
         "list_filters": [
@@ -600,7 +600,7 @@ APIS_ENTITIES = {
     "Publication": {
         "merge": True,
         "search": ["name"],
-        "form_order": ["name", "name_english", "start_date_written", "end_date_written", "kind", "status", "collection", "assigned_user",],
+        "form_order": ["name", "start_date_written", "end_date_written", "kind", "status", "collection", "assigned_user",],
         "table_fields": ["name", "assigned_user"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
