@@ -229,7 +229,6 @@ APIS_BIBSONOMY_FIELDS = [
     "self",
 
     # mutual fields between different entities
-    "name_english",
     "migne_number",
 
     # TempEntityClass fields
@@ -584,7 +583,7 @@ APIS_ENTITIES = {
     "Passage": {
         "merge": True,
         "search": ["name"],
-        "form_order": ["name", "name_english", "start_date_written", "end_date_written", "kind", "status", "collection", "assigned_user",],
+        "form_order": ["name", "start_date_written", "end_date_written", "kind", "status", "collection", "assigned_user",],
         "table_fields": ["name", "assigned_user"],
         "additional_cols": ["id", "kind", ],
         "list_filters": [
