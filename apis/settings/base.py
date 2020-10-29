@@ -69,8 +69,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "webpage",
     "browsing",
-    "stats",
-    "django_extensions",
     "apis_core.apis_entities",
     "apis_core.apis_metainfo",
     "apis_core.apis_relations",
@@ -298,7 +296,6 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     "relation_type__vocab_name",
     "relation_type__name_reverse",
     "__text",
-    "annotation",
     "annotation_set_relation",
 ]
 
