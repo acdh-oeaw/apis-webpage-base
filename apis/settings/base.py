@@ -81,7 +81,6 @@ INSTALLED_APPS = [
     "apis_core.apis_labels",
     # 'apis_core.apis_vis',
     "rest_framework.authtoken",
-    "rest_framework_swagger",
     # "drf_yasg",
     "drf_spectacular",
     "guardian",
@@ -122,8 +121,8 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ),
     "DEFAULT_FILTER_BACKENDS": (
+        "drf_spectacular.contrib.django_filters.DjangoFilterBackend",
         "django_filters.rest_framework.DjangoFilterBackend",
-        "url_filter.integrations.drf.DjangoFilterBackend",
     ),
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
