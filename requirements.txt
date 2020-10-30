@@ -98,4 +98,4 @@ urllib3==1.25.8
 wrapt==1.11.2
 yapf==0.29.0
 zipp==3.1.0
--e git+https://github.com/sennierer/drf-spectacular#egg=drf-spectacular
+drf-spectacular==0.10.0
