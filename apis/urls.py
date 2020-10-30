@@ -1,8 +1,7 @@
-from django.conf.urls import url, include, handler404
-from django.contrib import admin
 from django.conf import settings
+from django.conf.urls import url, include
+from django.contrib import admin
 from django.urls import path
-from rest_framework import routers
 
 from apis_core.apis_entities.api_views import GetEntityGeneric
 
@@ -25,10 +24,6 @@ else:
         url(r'^info/', include('infos.urls', namespace='info')),
         url(r'^', include('webpage.urls', namespace='webpage')),
     ]
-# TODO __sresch__ : check thisurl(r'^bibsonomy/', include('apis_bibsonomy.urls', namespace="bibsonomy")),
-
-if 'haystack' in settings.INSTALLED_APPS:
-    urlpatterns = urlpatterns + [url(r'^search/', include('haystack.urls')), ]
 
 if 'transkribus' in settings.INSTALLED_APPS:
     urlpatterns = urlpatterns + [url(r'^transkribus/', include('transkribus.urls')), ]
@@ -37,4 +32,14 @@ if "apis_bibsonomy" in settings.INSTALLED_APPS:
     urlpatterns.append(
         url(r"^bibsonomy/", include("apis_bibsonomy.urls", namespace="bibsonomy"))
     )
+
+if "oebl_irs_workflow" in settings.INSTALLED_APPS:
+    urlpatterns.append(
+        url(r'^workflow/', include('oebl_irs_workflow.urls', namespace="oebl_irs_workflow"))
+    )
 handler404 = 'webpage.views.handler404'
+
+if "django_summernote" in settings.INSTALLED_APPS:
+    urlpatterns.append(
+        path('summernote/', include('django_summernote.urls'))
+    )
