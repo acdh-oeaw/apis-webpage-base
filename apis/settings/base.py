@@ -249,6 +249,7 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     "relation_type__vocab_name",
     "relation_type__name_reverse",
     "__text",
+    'annotation_set_relation',
 ]
 
 APIS_RELATIONS = {
