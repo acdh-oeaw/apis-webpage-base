@@ -288,11 +288,26 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
 ]
 
 APIS_API_ADDITIONAL_FILTERS = {
-  "Person": [("personinstitution_set__related_institution_id", ["in", "exact"])],
-  "Passage": [
-      ("publication_set__id", ["in", "exact"]),
-      ("person_set__id", ["in", "exact"])
-  ],
+    "Person": [
+        ("publication_set__id", ["in", "exact"]),
+        ("publication_relationtype_set__id", ["in", "exact"]),
+        ("passage_set__id", ["in", "exact"]),
+        ("passage_relationtype_set__id", ["in", "exact"]),
+    ],
+    "Passage": [
+        ("person_set__id", ["in", "exact"]),
+        ("person_relationtype_set__id", ["in", "exact"]),
+        ("event_set__id", ["in", "exact"]),
+        ("event_relationtype_set__id", ["in", "exact"]),
+        ("publication_set__id", ["in", "exact"]),
+        ("publication_set__person_set__id", ["in", "exact"]),
+        ("publication_relationtype_set__id", ["in", "exact"]),
+        ("publication_set__person_relationtype_set__id", ["in", "exact"]),
+    ],
+    "Event": [
+        ("passage_set__id", ["in", "exact"]),
+        ("passage_relationtype_set__id", ["in", "exact"]),
+    ]
 }
 
 APIS_RELATIONS = {
