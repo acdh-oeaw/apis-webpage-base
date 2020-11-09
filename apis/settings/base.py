@@ -20,38 +20,33 @@ BASE_DIR = os.path.dirname(
 
 SHARED_URL = "https://shared.acdh.oeaw.ac.at/"
 
-ACDH_IMPRINT_URL = (
-    "https://shared.acdh.oeaw.ac.at/acdh-common-assets/api/imprint.php?serviceID="
-)
+ACDH_IMPRINT_URL = "https://shared.acdh.oeaw.ac.at/acdh-common-assets/api/imprint.php?serviceID="
 
 PROJECT_NAME = "apis"
 PROJECT_SHARED = "https://shared.acdh.oeaw.ac.at/apis/"
 PROJECT_DEFAULT_MD = {
-    "title": "TITLE",
-    "author": "Matthias Schlögl, Peter Andorfer",
-    "subtitle": "SUBTITLE",
-    "description": """This is a default metadata file. To change this, provide\
+    'title': 'TITLE',
+    'author': 'Matthias Schlögl, Peter Andorfer',
+    'subtitle': 'SUBTITLE',
+    'description': """This is a default metadata file. To change this, provide\
     provide a following file {PROJECT_SHARED}/{PROJECT_NAME}/metadata.json""",
-    "github": "https://github.com/acdh-oeaw/apis-webpage-base",
-    "production instance": None,
-    "purpose_de": "",
-    "purpose_en": """""",
-    "version": ["apis_core", "charts", "django"],
-    "matomo_id": "",
-    "matomo_url": "",
-    "imprint": "/imprint",
-    "social_media": [
-        ("fab fa-twitter", "https://twitter.com/ACDH_OeAW"),
-        ("fab fa-youtube", "https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w"),
+    'github': 'https://github.com/acdh-oeaw/apis-webpage-base',
+    'production instance': None,
+    'purpose_de': '',
+    'purpose_en': """""",
+    'version': ['apis_core', 'charts', 'django'],
+    'matomo_id': '',
+    'matomo_url': '',
+    'imprint': '/imprint',
+    'social_media': [
+        ('fab fa-twitter', 'https://twitter.com/ACDH_OeAW'),
+        ('fab fa-youtube', 'https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w'),
     ],
-    "social_media": [
-        ("fab fa-twitter fa-2x", "https://twitter.com/ACDH_OeAW"),
-        (
-            "fab fa-youtube fa-2x",
-            "https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w",
-        ),
+    'social_media': [
+        ('fab fa-twitter fa-2x', 'https://twitter.com/ACDH_OeAW'),
+        ('fab fa-youtube fa-2x', 'https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w'),
     ],
-    "app_type": "database",
+    'app_type': 'database',
 }
 
 # Application definition
@@ -81,7 +76,7 @@ INSTALLED_APPS = [
     "apis_core.apis_labels",
     # 'apis_core.apis_vis',
     "rest_framework.authtoken",
-    # "drf_yasg",
+    #"drf_yasg",
     "drf_spectacular",
     "guardian",
     "charts",
@@ -96,10 +91,10 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_METHODS = ("GET", "OPTIONS")
 
 SPECTACULAR_SETTINGS: Dict[str, Any] = {
-    "TITLE": "APIS generic API",
-    "DESCRIPTIOPN": "Provides access to the main APIS data-model endpoints.",
-    "LICENSE": {"name": "MIT License", "url": "https://www.mit.edu/~amini/LICENSE.md"},
-    "VERSION": "0.13",
+'TITLE': 'APIS generic API',
+'DESCRIPTIOPN': 'Provides access to the main APIS data-model endpoints.',
+'LICENSE': {'name': 'MIT License', 'url': 'https://www.mit.edu/~amini/LICENSE.md'},
+'VERSION': '0.13'
 }
 
 
@@ -109,10 +104,9 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 50,
     "DEFAULT_PERMISSION_CLASSES": (
-        # "rest_framework.permissions.DjangoModelPermissions"
-        # "rest_framework.permissions.IsAuthenticated",
-        # "rest_framework.permissions.DjangoObjectPermissions",
-        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+        #"rest_framework.permissions.DjangoModelPermissions",
+        #"rest_framework.permissions.IsAuthenticated",
+        "rest_framework.permissions.DjangoObjectPermissions",
         # use IsAuthenticated for every logged in user to have global edit rights
     ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -120,11 +114,11 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.BasicAuthentication",
     ),
-    "DEFAULT_FILTER_BACKENDS": (
-        "drf_spectacular.contrib.django_filters.DjangoFilterBackend",
-        "django_filters.rest_framework.DjangoFilterBackend",
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+       'url_filter.integrations.drf.DjangoFilterBackend',
     ),
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 AUTHENTICATION_BACKENDS = (
@@ -188,9 +182,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-APIS_BASE_URI = "https://sola.acdh-dev.oeaw.ac.at/apis/api/entity/"
+APIS_BASE_URI = "TO CHANGE"
 
-APIS_MIN_CHAR = 3
+APIS_MIN_CHAR = 0
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -225,41 +219,6 @@ APIS_CETEICEAN_JS = "https://teic.github.io/CETEIcean/js/CETEI.js"
 
 APIS_NEXT_PREV = True
 
-APIS_BIBSONOMY_FIELDS = [
-    # so that the whole entity can be used as well
-    "self",
-    # mutual fields between different entities
-    "migne_number",
-    # TempEntityClass fields
-    "name",
-    "start_date_written",
-    "end_date_written",
-    # Place fields
-    "kind",
-    # Publication fields
-    "clavis_number",
-]
-
-APIS_BIBSONOMY_TEXTS = [
-    # Person texts
-    "Biographie (EN)",
-    "Biographie (DE)",
-    # Institution texts
-    "Beschreibung (EN)",
-    "Beschreibung (DE)",
-    # Passage texts
-    "Inhalt (ist zu übertragen zu publications)",
-    "Übersetzung (EN)",
-    "Übersetzung (DE)",
-    "Originaltext / Zitat",
-    "Auswertung (EN)",
-    "Auswertung (DE)",
-    # Publication texts
-    "Inhalt (EN)",
-    "Inhalt (DE)",
-]
-
-
 APIS_ALTERNATE_NAMES = [
     "Taufname",
     "Ehename",
@@ -293,6 +252,14 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     "__text",
     "annotation_set_relation",
 ]
+
+APIS_API_ADDITIONAL_FILTERS = {
+  "Person": [("personinstitution_set__related_institution_id", ["in", "exact"])],
+  "Passage": [
+      ("publication_set__id", ["in", "exact"]),
+      ("person_set__id", ["in", "exact"])
+  ],
+}
 
 APIS_RELATIONS = {
     "list_filters": [("relation_type",)],
@@ -594,7 +561,6 @@ APIS_ENTITIES = {
         "search": ["name"],
         "form_order": [
             "name",
-            "name_english",
             "gender",
             "start_date_written",
             "end_date_written",

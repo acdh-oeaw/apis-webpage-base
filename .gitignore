@@ -10,8 +10,11 @@ __pycache__/
 /Untitled.ipynb
 /apis/settings/server_*
 /apis/settings/local_*
+*.ipynb
 
 myenv
+node_modules
+*.json
 
 # sym links
 /apis_bibsonomy
