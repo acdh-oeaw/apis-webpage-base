@@ -106,7 +106,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": (
         #"rest_framework.permissions.DjangoModelPermissions",
         #"rest_framework.permissions.IsAuthenticated",
-        "rest_framework.permissions.DjangoObjectPermissions",
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
         # use IsAuthenticated for every logged in user to have global edit rights
     ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -182,9 +182,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-APIS_BASE_URI = "TO CHANGE"
+APIS_BASE_URI = "https://sola.acdh-dev.oeaw.ac.at/apis/api/entity/"
 
-APIS_MIN_CHAR = 0
+APIS_MIN_CHAR = 3
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -218,6 +218,40 @@ APIS_CETEICEAN_CSS = "https://teic.github.io/CETEIcean/css/CETEIcean.css"
 APIS_CETEICEAN_JS = "https://teic.github.io/CETEIcean/js/CETEI.js"
 
 APIS_NEXT_PREV = True
+
+APIS_BIBSONOMY_FIELDS = [
+    # so that the whole entity can be used as well
+    "self",
+    # mutual fields between different entities
+    "migne_number",
+    # TempEntityClass fields
+    "name",
+    "start_date_written",
+    "end_date_written",
+    # Place fields
+    "kind",
+    # Publication fields
+    "clavis_number",
+]
+
+APIS_BIBSONOMY_TEXTS = [
+    # Person texts
+    "Biographie (EN)",
+    "Biographie (DE)",
+    # Institution texts
+    "Beschreibung (EN)",
+    "Beschreibung (DE)",
+    # Passage texts
+    "Inhalt (ist zu übertragen zu publications)",
+    "Übersetzung (EN)",
+    "Übersetzung (DE)",
+    "Originaltext / Zitat",
+    "Auswertung (EN)",
+    "Auswertung (DE)",
+    # Publication texts
+    "Inhalt (EN)",
+    "Inhalt (DE)",
+]
 
 APIS_ALTERNATE_NAMES = [
     "Taufname",
