@@ -307,7 +307,10 @@ APIS_API_ADDITIONAL_FILTERS = {
     "Event": [
         ("passage_set__id", ["in", "exact"]),
         ("passage_relationtype_set__id", ["in", "exact"]),
-    ]
+    ],
+    "PassageType": [
+        ("parent_class__id", ["in", "exact", "isnull"]),
+    ],
 }
 
 APIS_RELATIONS = {
