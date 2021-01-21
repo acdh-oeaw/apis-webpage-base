@@ -11,17 +11,19 @@ APIS_BASE_URI = "https://apis.acdh.oeaw.ac.at/"
 
 ALLOWED_HOSTS = []
 
-SECRET_KEY = 'd3j@454545()(/)@zlck/6dsaf*#sdfsaf*#sadflj/6dsfk-11$)d6ixcvjsdfsdf&-u35#ayi'
+SECRET_KEY = (
+    "d3j@454545()(/)@zlck/6dsaf*#sdfsaf*#sadflj/6dsfk-11$)d6ixcvjsdfsdf&-u35#ayi"
+)
 DEBUG = True
 DEV_VERSION = False
 
-INSTALLED_APPS += ['gm2m', 'apis_highlighter']
+INSTALLED_APPS += ["gm2m", "apis_highlighter", "apis_ipif2"]
 
 DATABASES = {}
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 
 
 LANGUAGE_CODE = "de"
 
-APIS_RELATIONS_FILTER_EXCLUDE += ['annotation', 'annotation_set_relation']
+APIS_RELATIONS_FILTER_EXCLUDE += ["annotation", "annotation_set_relation"]

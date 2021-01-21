@@ -51,6 +51,9 @@ if "apis_bibsonomy" in settings.INSTALLED_APPS:
         url(r"^bibsonomy/", include("apis_bibsonomy.urls", namespace="bibsonomy"))
     )
 
+if "apis_ipif2" in settings.INSTALLED_APPS:
+    urlpatterns.append(url(r"^ipif/", include("apis_ipif2.urls", namespace="ipif")))
+
 if "oebl_irs_workflow" in settings.INSTALLED_APPS:
     urlpatterns.append(
         url(
