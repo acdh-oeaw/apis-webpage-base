@@ -17,7 +17,7 @@ if "theme" in settings.INSTALLED_APPS:
         url(r"^info/", include("infos.urls", namespace="info")),
         url(r"^webpage/", include("webpage.urls", namespace="webpage")),
     ]
-if "paas_theme" in settings.INSTALLED_APPS:
+elif "paas_theme" in settings.INSTALLED_APPS:
     urlpatterns = [
         url(r"^apis/", include("apis_core.urls", namespace="apis")),
         url(r"^api-auth/", include("rest_framework.urls", namespace="rest_framework")),
