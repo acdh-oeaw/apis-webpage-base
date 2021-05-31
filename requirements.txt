@@ -33,6 +33,7 @@ django-url-filter==0.3.15
 djangorestframework==3.11.1
 djangorestframework-csv==2.1.0
 djangorestframework-xml==1.4.0
+django-admin-csvexport==1.9
 drf-yasg==1.17.1
 entrypoints==0.3
 enum-compat==0.0.3
