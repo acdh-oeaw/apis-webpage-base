@@ -52,6 +52,7 @@ PROJECT_DEFAULT_MD = {
 # Application definition
 
 INSTALLED_APPS = [
+    'gm2m',
     "dal",
     # 'corsheaders',
     "dal_select2",
@@ -250,7 +251,15 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     "relation_type__vocab_name",
     "relation_type__name_reverse",
     "__text",
-    'annotation_set_relation',
+
+
+    # EL OLD:
+    "annotation_set_relation",
+
+    # EL NEW:
+    "annotation_set_new_relation",
+
+
 ]
 
 APIS_RELATIONS = {
