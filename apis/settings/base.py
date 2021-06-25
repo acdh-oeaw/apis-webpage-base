@@ -251,15 +251,7 @@ APIS_RELATIONS_FILTER_EXCLUDE = [
     "relation_type__vocab_name",
     "relation_type__name_reverse",
     "__text",
-
-
-    # EL OLD:
     "annotation_set_relation",
-
-    # EL NEW:
-    "annotation_set_new_relation",
-
-
 ]
 
 APIS_RELATIONS = {
