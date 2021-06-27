@@ -52,7 +52,6 @@ PROJECT_DEFAULT_MD = {
 # Application definition
 
 INSTALLED_APPS = [
-    'gm2m',
     "dal",
     # 'corsheaders',
     "dal_select2",
